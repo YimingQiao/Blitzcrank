@@ -7,7 +7,7 @@ called `Delayed Coding`, which has faster decompression speed.
 ---
 
 ## Clone Instruction
-To clone this project successfully, please install [git-lfs](https://git-lfs.com/). We use it to manage large dataset files.
+To clone this project successfully, please install [git-lfs](https://git-lfs.com/). We use it to manage large dataset files. The clone will take several minutes to finish, depending on your Internet. 
 
 
 ## Project Structure
