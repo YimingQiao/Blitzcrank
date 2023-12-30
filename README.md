@@ -132,28 +132,24 @@ Compressed Size: 31030821
 
 ### 1. Compress:
 
-`./tabular_blitzcrank -c USCensus1990.dat USCensus1990.com USCensus1990.config 0 1 20000`
+    ./tabular_blitzcrank -c USCensus1990.dat USCensus1990.com USCensus1990.config 0 1 20000`
 
 Output:
-```
-Delimiter: ,	Skip Learning: 1	Block Size: 20000	
-Start load data into memory...
-Data loaded.
-Iteration 1 Starts
-Model Size: 3.26465 KB. 
-Compressed Size: 31030821
-```
+
+    Delimiter: ,	Skip Learning: 1	Block Size: 20000	
+    Start load data into memory...
+    Data loaded.
+    Iteration 1 Starts
+    Model Size: 3.26465 KB. 
+    Compressed Size: 31030821
+
 
 ### 2. Decompress
 
-`./tabular_blitzcrank -d USCensus1990.com USCensus1990.rec USCensus1990.config 0 20000`
+    ./tabular_blitzcrank -d USCensus1990.com USCensus1990.rec USCensus1990.config 0 20000
 
-Output:
-```
-Delimiter: ,	Block Size: 20000	
-Block Size: 286 tuple
-```
 After the execution, you could 
-`diff USCensus1990.dat USCensus1990.rec`
+
+    diff USCensus1990.dat USCensus1990.rec
 to check the decompression result.
 
