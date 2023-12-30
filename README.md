@@ -1,8 +1,8 @@
-# Blitzcrank - Fast Semantic Compression with Random Access for OLTP workload
+# Blitzcrank - Fast Semantic Compression with Random Access for OLTP workloads
 
 __Blitzcrank__, is a fast semantic compression algorithm, supporting random access. It provides better
 compression factors than Gzip and [Zstandard](https://github.com/facebook/zstd). It is backed by a new entropy encoding algorithm,
-called `Delayed Coding`, which has faster decompression speed.
+called `Delayed Coding`, which has a faster decompression speed.
 
 ---
 
@@ -12,7 +12,7 @@ To clone this project successfully, please install [git-lfs](https://git-lfs.com
 
 ## Project Structure
 
-Main project structure is shown below. Two version of blitzcrank is provided: `Delayed Coding` and `Arithmetic Coding`, you
+The main project structure is shown below. Two versions of Blitzcrank are provided: `Delayed Coding` and `Arithmetic Coding`, you
 can switch between them by changing the top-level `CMakeLists.txt`.
 
 
