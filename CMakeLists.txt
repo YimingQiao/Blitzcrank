@@ -21,7 +21,7 @@ set(CODING "DELAYED_CODING")
 
 IF (CODING STREQUAL "DELAYED_CODING")
     # Delayed Coding Version
-    add_subdirectory(delay_blitzcrank)
+    add_subdirectory(delayed_coding)
     add_executable(JSON_blitzcrank ${PROJECT_SOURCE_DIR}/JSON.cpp)
     add_executable(tabular_blitzcrank ${PROJECT_SOURCE_DIR}/tabular.cpp)
 
@@ -29,7 +29,7 @@ IF (CODING STREQUAL "DELAYED_CODING")
     target_link_libraries(tabular_blitzcrank PUBLIC db_compress)
 ELSEIF (CODING STREQUAL "ARITHMETIC_CODING")
     # Arithmetic Coding Version
-    add_subdirectory(arithmetic_blitzcrank)
+    add_subdirectory(arithmetic_coding)
     add_executable(tabular_blitzcrank ${PROJECT_SOURCE_DIR}/tabular.cpp)
     target_link_libraries(tabular_blitzcrank PUBLIC db_compress_arith)
 ELSE ()
