@@ -18,7 +18,7 @@ The main project structure is as follows. Two versions of Blitzcrank are provide
 ├── CMakeLists.txt
 ├── README.md
 ├── LICENSE
-├── rapidjson  // it is a third-party library used to parse JSON.
+├── rapidjson    // it is a third-party library used to parse JSON.
 ├── delay_blitzcrank
 │         ├── CMakeLists.txt
 │         ├── include
@@ -118,26 +118,25 @@ Let's use the [USCensus1990](https://archive.ics.uci.edu/ml/datasets/US+Census+D
 
 #### Benchmark Mode:
 
-    ./tabular_blitzcrank -b USCensus1990.dat USCensus1990.config 0 1 20000
 
-Output:
-```
-Delimiter: ,	Skip Learning: 1	Block Size: 20000	
-[Compression]	Start load data into memory...
-Data loaded.
-Model Size: 3.26465 KB. 
-Throughput:  108.524 MiB/s	Time:  3.15137 s
-[Decompression]	Block Size: 286 tuple
-Throughput:  187.538 MiB/s	Time:  1.82363 s
-[Compression Factor (Origin Size / CompressedSize)]: 11.5654
-Compressed Size: 31030821
-```
+    ./tabular_blitzcrank -b USCensus1990.dat USCensus1990.config 0 1 20000
+    
+    
+    Delimiter: ,	Skip Learning: 1	Block Size: 20000	
+    [Compression]	Start load data into memory...
+    Data loaded.
+    Model Size: 3.26465 KB. 
+    Throughput:  108.524 MiB/s	Time:  3.15137 s
+    [Decompression]	Block Size: 286 tuple
+    Throughput:  187.538 MiB/s	Time:  1.82363 s
+    [Compression Factor (Origin Size / CompressedSize)]: 11.5654
+    Compressed Size: 31030821
+
 
 #### Compress Mode:
 
-    ./tabular_blitzcrank -c USCensus1990.dat USCensus1990.com USCensus1990.config 0 1 20000`
+    ./tabular_blitzcrank -c USCensus1990.dat USCensus1990.com USCensus1990.config 0 1 20000
 
-Output:
 
     Delimiter: ,	Skip Learning: 1	Block Size: 20000	
     Start load data into memory...
