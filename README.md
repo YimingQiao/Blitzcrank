@@ -18,6 +18,7 @@ The main project structure is as follows. Two versions of Blitzcrank are provide
 ├── CMakeLists.txt
 ├── README.md
 ├── LICENSE
+├── rapidjson  // it is a third-party library used to parse JSON.
 ├── delay_blitzcrank
 │         ├── CMakeLists.txt
 │         ├── include
