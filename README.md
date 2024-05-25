@@ -17,6 +17,7 @@ The main project structure is as follows. Two versions of Blitzcrank are provide
 .
 ├── CMakeLists.txt
 ├── README.md
+├── LICENSE
 ├── delay_blitzcrank
 │         ├── CMakeLists.txt
 │         ├── include
