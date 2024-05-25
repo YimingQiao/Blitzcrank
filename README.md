@@ -114,7 +114,7 @@ make
 
 ### Example: USCensus1990
 
-Let's use the [USCensus1990](https://archive.ics.uci.edu/ml/datasets/US+Census+Data+(1990)) dataset as an example. You can find this dataset and its configuration file in the [build-release](https://github.com/YimingQiao/Blitzcrank/tree/main/build-release) folder. The configuration file is necessary for compressing or decompressing a dataset, as it contains metadata specific to the dataset. We've provided the config file for the USCensus1990 dataset.
+Let's use the [USCensus1990](https://archive.ics.uci.edu/ml/datasets/US+Census+Data+(1990)) dataset as an example. You can find this dataset and its configuration file in the [build-release](https://github.com/YimingQiao/Blitzcrank/tree/main/build-release) folder. Alternatively, you can download the dataset directly from this [link](https://drive.google.com/file/d/1Lpo_LcmC0tqR-Gl7yyvPO7xIcwe5ZP9_/view?usp=drive_link). The configuration file is necessary for compressing or decompressing a dataset, as it contains metadata specific to the dataset. We've provided the config file for the USCensus1990 dataset.
 
 #### Benchmark Mode:
 
