@@ -70,13 +70,14 @@ std::ifstream::pos_type filesize(const char *filename) {
 }
 
 void PrintHelpInfo() {
-    std::cout << "Usage:\n";
-    std::cout << "Compression: tabular_squish -c input_file output_file "
-                 "config_file delimiter skip_learning block_size\n";
-    std::cout << "Decompression: tabular_squish -d input_file output_file "
-                 "config_file delimiter block_size\n";
-    std::cout << "Benchmark: tabular_squish -b input file config_file delimiter "
-                 "skip_learning block size\n";
+    std::cout << "Compression How To:\n\n";
+    std::cout << "./tabular_blitzcrank [mode] [dataset] [config] [if use \"|\" as delimiter] [if skip learning] [block size]\n\n";
+    std::cout << "    [mode]: -c for compression, -d for decompression, -b for benchmarking\n";
+    std::cout << "    [dataset]: path to the dataset\n";
+    std::cout << "    [config]: path to the config file\n";
+    std::cout << "    [if use \"|\" as delimiter]: 0 for comma, 1 for \"|\"\n";
+    std::cout << "    [if skip learning]: 0 for learning, 1 for skipping learning\n";
+    std::cout << "    [block size]: block size for compression\n";
 }
 
 // Read input_file_name, output_file_name, config_file_name and whether to
