@@ -87,7 +87,7 @@ make
 ```
 
 
-## Compression Instructions:
+## Compression Instructions
 
 ```shell
 ./tabular_blitzcrank [mode] [dataset] [config] [if use "|" as delimiter] [if skip learning] [block size]
