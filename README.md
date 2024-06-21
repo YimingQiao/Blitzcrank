@@ -4,7 +4,7 @@
 
 This repository contains the code for the paper titled "[Blitzcrank: Fast Semantic Compression for In-memory Online Transaction Processing](https://arxiv.org/abs/2406.13107)," accepted by **VLDB'24**.
 
-**Blitzcrank** is a library for compressing row-store OLTP databases. It relies on a novel entropy coding algorithm called **Delayed Coding**, which achieves near-entropy compression factors while maintaining fast decompression speeds.
+**Blitzcrank** is a library for compressing row-store OLTP databases. It uses a novel entropy coding algorithm called **Delayed Coding**, which achieves near-entropy compression factors while maintaining fast decompression speeds.
 
 ## Clone Instructions
 
