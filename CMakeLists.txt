@@ -15,7 +15,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 option(BLITZCRANK_RUST_ENCODER "Experimental bit-compatible Rust block encoder (C++ decoder retained)" OFF)
 set(BLITZCRANK_DELAYED_CODING_DIR "" CACHE PATH "Local pinned delayed-coding Rust source checkout")
-set(BLITZCRANK_DELAYED_CODING_REVISION "2ba34dc342c3461615cf266f24ff36e08979f874")
+set(BLITZCRANK_DELAYED_CODING_REVISION "7e6c5a2b216967682ad33b045cd277f2dea549a1")
 option(BLITZCRANK_ALLOW_UNPINNED_DC "Development only: allow a different/modified Rust dependency" OFF)
 if(BLITZCRANK_RUST_ENCODER)
     if(NOT EXISTS "${BLITZCRANK_DELAYED_CODING_DIR}/include/delayed_coding.h")
