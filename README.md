@@ -8,6 +8,61 @@ This repository contains the code for the paper titled "[Blitzcrank: Fast Semant
 
 ## Clone Instructions
 
+### Experimental standalone Rust encoder
+
+The `improve-delayed-coding` branch can call the separate
+[`YimingQiao/delayed-coding`](https://github.com/YimingQiao/delayed-coding) library
+once per encoded block. This is **encoder-only**, opt-in, single-state delay-24
+integration: the C++ decoder and historical files are retained. Four-state DC is
+available in the core, but needs explicit new container metadata before use here.
+The default build still uses the original research encoder.
+
+Install Rust 1.88+, GCC/Clang and CMake 3.20+. Obtain the dependency revision named
+by `BLITZCRANK_DELAYED_CODING_REVISION` in the top-level CMake file; it may be a
+local development checkpoint until pushed. Nothing is downloaded by CMake.
+
+```sh
+cmake -S . -B build-rust -DCMAKE_BUILD_TYPE=Release \
+  -DBLITZCRANK_RUST_ENCODER=ON \
+  -DBLITZCRANK_DELAYED_CODING_DIR=/absolute/path/to/delayed-coding \
+  -DDELAYED_CODING_BUILD_TESTS=OFF
+cmake --build build-rust -j
+```
+
+The adapter imports immutable branch mappings after model construction (simple
+pool entries on first use), gathers handles per block and reuses a compressor-owned
+Rust workspace. It currently copies words into the existing `BitString` and adds
+mapping/handle memory. Do not edit branch mappings after import without clearing
+their cached Rust handles; lazy preparation must finish before concurrent sharing.
+This is not yet a zero-copy, fully migrated or production-accepted backend.
+
+For the real Census regression, first build the **unmodified** legacy revision
+`0ed9c97908c51440b30a2eef3c1b90325dd2c87c` separately. GCC 12 may need
+`-DCMAKE_CXX_FLAGS=-include\ cstdint` for that original source. Supply real data,
+not LFS pointer files. The test uses the first 20,000 rows and writes only inside
+the explicitly supplied, dedicated scratch directory:
+
+```sh
+cmake -DDATASET=/absolute/path/to/USCensus1990.dat \
+  -DCONFIG=/absolute/path/to/USCensus1990.config \
+  -DLEGACY_EXE=/absolute/path/to/legacy-build/tabular_blitzcrank \
+  -DRUST_EXE=/absolute/path/to/build-rust/tabular_blitzcrank \
+  -DVERIFY_EXE=/absolute/path/to/build-rust/verify_record_seeks \
+  -DWORK_DIR=/absolute/path/to/dedicated-regression-scratch \
+  -P tests/rust_encoder_roundtrip.cmake
+```
+
+At block thresholds 1 and 20,000 this verifies exact reconstruction, identical
+payload/model/index bytes and 8,200 shuffled/boundary record seeks across both
+backends. It does not establish JSON/time-series compatibility or rANS superiority.
+`tests/benchmark_bridge.cmake` accepts `LEGACY_EXE`, `RUST_EXE`, the same `WORK_DIR`,
+and `REPORT` CSV path; it runs five alternating samples with CPU 2 affinity.
+This measures the bridge against original C++ DC, not against rANS. The initial
+Census runs show modest encoding gains but a small retained-C++ decoding regression;
+see the standalone library's `benchmarks/BLITZCRANK_FOUR_STATE.md` for all results.
+
+### Research datasets
+
 To clone this project successfully, ensure you have [git-lfs](https://git-lfs.com/) installed. We use it to manage large dataset files. Depending on your internet connection, the clone process may take several minutes to finish.
 
 ## Project Structure
@@ -155,4 +210,3 @@ Let's use the [USCensus1990](https://archive.ics.uci.edu/ml/datasets/US+Census+D
 After the execution, we check the compression correctness:
 
     diff USCensus1990.dat USCensus1990.rec
-

@@ -14,6 +14,12 @@
 #include <utility>
 #include <variant>
 #include <vector>
+#include <cstdint>
+#ifdef BLITZCRANK_RUST_ENCODER
+#include <memory>
+#include <stdexcept>
+#include "delayed_coding.h"
+#endif
 
 namespace db_compress {
 // ---------------------------- Hyper Parameters ----------------------------
@@ -108,6 +114,25 @@ struct ProbInterval {
 struct Branch {
   std::vector<ProbInterval> segments_; /**< each branch has several segments_ */
   unsigned total_weights_;             /**< weights of each branch*/
+#ifdef BLITZCRANK_RUST_ENCODER
+  // Owned mapping snapshot, initialized after model construction. Clear this
+  // handle if a caller edits segments/weights after its first encoding.
+  std::shared_ptr<DcBranch> rust_branch_;
+  void PrepareRustBranch() {
+    if (rust_branch_) return;
+    std::vector<DcInterval> intervals;
+    intervals.reserve(segments_.size());
+    for (const auto &segment : segments_) {
+      if (segment.left_prob_ < 0 || segment.right_prob_ < 0)
+        throw std::runtime_error("negative Rust branch interval");
+      intervals.push_back({static_cast<uint32_t>(segment.left_prob_), static_cast<uint32_t>(segment.right_prob_)});
+    }
+    DcBranch *branch = nullptr;
+    if (dc_branch_new(intervals.data(), intervals.size(), total_weights_, &branch) != DC_OK)
+      throw std::runtime_error("cannot import Rust branch mapping");
+    rust_branch_.reset(branch, dc_branch_free);
+  }
+#endif
 
   Branch() = default;
 

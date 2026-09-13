@@ -204,11 +204,45 @@ namespace db_compress {
         for (int i = 0; i < branches.size(); ++i) {
             if (branches[i].segments_.empty() && branches[i].total_weights_ != 0)
                 std::cout << "InitDelayedCodingParams::segments_ cannot be empty.\n";
+#ifdef BLITZCRANK_RUST_ENCODER
+            if (branches[i].total_weights_ != 0) branches[i].PrepareRustBranch();
+#endif
         }
     }
 
     void DelayedCoding(const std::vector<Branch *> &prob_intervals, int &interval_size,
                        BitString *bit_string, std::vector<bool> &sym_is_virtual) {
+#ifdef BLITZCRANK_RUST_ENCODER
+        if (interval_size < 0 || static_cast<size_t>(interval_size) > prob_intervals.size())
+            throw std::runtime_error("invalid branch count");
+        if (!bit_string->rust_workspace_) {
+            DcWorkspace *workspace = nullptr;
+            if (dc_workspace_new(&workspace) != DC_OK) throw std::runtime_error("cannot create Rust workspace");
+            bit_string->rust_workspace_.reset(workspace);
+        }
+        bit_string->rust_branches_.resize(interval_size);
+        bit_string->rust_bytes_.resize(static_cast<size_t>(interval_size) * 2);
+        for (int i = 0; i < interval_size; ++i) {
+            auto *branch = prob_intervals[i];
+            if (!branch) throw std::runtime_error("null branch");
+            // Simple numerical/raw branches are materialized lazily, once per
+            // pool entry; model branches were prepared during model building.
+            branch->PrepareRustBranch();
+            bit_string->rust_branches_[i] = branch->rust_branch_.get();
+        }
+        size_t offset = 0, size = 0;
+        const auto status = dc_encode_branches(bit_string->rust_branches_.data(), interval_size,
+            kDelayedCoding, 1, bit_string->rust_bytes_.data(), bit_string->rust_bytes_.size(),
+            bit_string->rust_workspace_.get(), &offset, &size);
+        if (status != DC_OK) throw std::runtime_error("Rust block encoder failed: " + std::to_string(status));
+        if (size / 2 >= bit_string->size_) throw std::runtime_error("BitString capacity exceeded");
+        bit_string->num_ = size / 2;
+        for (size_t i = 0; i < size / 2; ++i) {
+            bit_string->bits_[bit_string->size_ - size / 2 + i] =
+                (uint16_t(bit_string->rust_bytes_[offset + i * 2]) << 8) | bit_string->rust_bytes_[offset + i * 2 + 1];
+        }
+        return;
+#endif
         for (int i = 0; i < interval_size; ++i) {
             assert(prob_intervals[i]->segments_.size() > 0);
             assert(prob_intervals[i]->total_weights_ > 0);

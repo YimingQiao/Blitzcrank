@@ -173,6 +173,12 @@ struct BitString {
   const uint32_t size_;
   uint32_t num_{0};
   std::vector<uint16_t> bits_;
+#ifdef BLITZCRANK_RUST_ENCODER
+  // Per-compressor state, not a global cache. Buffers grow once and are reused.
+  std::unique_ptr<DcWorkspace, decltype(&dc_workspace_free)> rust_workspace_{nullptr, dc_workspace_free};
+  std::vector<const DcBranch *> rust_branches_;
+  std::vector<uint8_t> rust_bytes_;
+#endif
 
   // Warning: array overflow.
   explicit BitString(size_t size) : size_(size), bits_(size) {}
