@@ -17,6 +17,11 @@ integration: the C++ decoder and historical files are retained. Four-state DC is
 available in the core, but needs explicit new container metadata before use here.
 The default build still uses the original research encoder.
 
+The pinned core also provides an explicit branchless four-state decoder and
+optional speculative model/event encoding; see its `examples/fast_block.rs` and
+`benchmarks/SPEED_KERNELS.md`. These fixed-model kernel gains do **not** imply
+that this scalar conditional-model adapter now has those throughput numbers.
+
 Install Rust 1.88+, GCC/Clang and CMake 3.20+. Obtain the dependency revision named
 by `BLITZCRANK_DELAYED_CODING_REVISION` in the top-level CMake file; it may be a
 local development checkpoint until pushed. Nothing is downloaded by CMake.
