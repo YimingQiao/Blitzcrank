@@ -1,5 +1,5 @@
 /build*/
-/rust/target/
+/target/
 __pycache__/
 *.profraw
 *.profdata

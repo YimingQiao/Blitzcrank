@@ -18,9 +18,6 @@ jobs:
             rust: stable
             features: '--all-features'
     runs-on: ${{ matrix.os }}
-    defaults:
-      run:
-        working-directory: rust
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,11 +32,3 @@ jobs:
       - run: cargo test --locked --release ${{ matrix.features }}
       - run: cargo run --locked --release -- capabilities --json
       - run: python3 -m py_compile examples/agent_client.py benchmarks/*.py
-  cpp:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          lfs: false
-      - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-      - run: cmake --build build -j2

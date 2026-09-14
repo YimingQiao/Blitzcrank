@@ -1,237 +1,126 @@
-# <div align="center"> Blitzcrank: Fast Semantic Compression for In-memory Online Transaction Processing </div>
-## <div align="center"> Introducing Delayed Coding: A Novel Entropy Coding Algorithm  </div>
+# Blitzcrank Rust preview
 
+A Rust tabular compression library and agent-friendly CLI, using the standalone
+[Delayed Coding](https://github.com/embryo-labs/delayed-coding) project. Supports
+INTEGER, ENUM, DOUBLE and STRING, exact CSV restoration, self-contained archives
+and resident typed random reads. The [historical C++ implementation](https://github.com/embryo-labs/Blitzcrank/tree/main)
+lives on `main`; this branch contains only the Rust application.
 
-This repository contains the code for the paper titled "[Blitzcrank: Fast Semantic Compression for In-memory Online Transaction Processing](https://dl.acm.org/doi/10.14778/3675034.3675044)," published in **VLDB'24**.
+**Preview scope:** static compression and read-only archives, not a complete
+port of the paper's learned models or transactional storage engine. No C++ file
+compatibility, online insertion/update, schema evolution or production guarantee.
 
-**Blitzcrank** is a library for compressing row-store OLTP databases. It uses a novel entropy coding algorithm called **Delayed Coding**, which achieves near-entropy compression factors while maintaining fast decompression speeds.
+## Build
 
-## Rust preview: portable records and optional SIMD bulk coding
-
-The `rust-preview` branch adds a [Rust library and CLI](rust/README.md), using
-the separate [Delayed Coding project](https://github.com/embryo-labs/delayed-coding).
-Its default independent-record profile keeps fields independent, full probability
-precision and compact tables. Reusable typed readers remove CSV formatting from
-resident random reads. Joint-field/string-chunk experiments remain explicit.
-
-An [optional AVX-512 bulk path](rust/SIMD.md) has runtime detection and a scalar
-fallback. It is not silently selected for single-record queries. The
-[agent interface](rust/AGENT_API.md) provides JSON capabilities, inspection,
-validation and queries, with atomic create-only outputs.
-
-The C++ implementation and `main` branch remain the research reference. Rust
-files are self-contained but not C++ compatible; conditional learning, online
-updates, JSON models and transactions are not ported. See the
-[release scope and review](rust/RELEASE_REVIEW.md) and
-[measurements with tradeoffs](rust/benchmarks/RANDOM_ACCESS.md).
-This is a preview, not a claim of universal 4x/10x performance.
-
-## Clone Instructions
-
-### Experimental standalone Rust encoder
-
-The retained opt-in C++ bridge can call the separate
-[`embryo-labs/delayed-coding`](https://github.com/embryo-labs/delayed-coding) library
-once per encoded block. This is **encoder-only**, opt-in, single-state delay-24
-integration: the C++ decoder and historical files are retained. Four-state DC is
-available in the core, but needs explicit new container metadata before use here.
-The default build still uses the original research encoder.
-
-The pinned core also provides an explicit branchless four-state decoder and
-optional speculative model/event encoding; see its `examples/fast_block.rs` and
-`benchmarks/SPEED_KERNELS.md`. These fixed-model kernel gains do **not** imply
-that this scalar conditional-model adapter now has those throughput numbers.
-
-Install Rust 1.88+, GCC/Clang and CMake 3.20+. Obtain the dependency revision named
-by `BLITZCRANK_DELAYED_CODING_REVISION` in the top-level CMake file from the
-published Delayed Coding repository. Nothing is downloaded by CMake.
+Rust 1.88+; Rust 1.89+ for the optional AVX-512 feature. The release manifest pins
+the standalone crates to an immutable Git revision; no sibling checkout is needed.
 
 ```sh
-cmake -S . -B build-rust -DCMAKE_BUILD_TYPE=Release \
-  -DBLITZCRANK_RUST_ENCODER=ON \
-  -DBLITZCRANK_DELAYED_CODING_DIR=/absolute/path/to/delayed-coding \
-  -DDELAYED_CODING_BUILD_TESTS=OFF
-cmake --build build-rust -j
+git clone --branch rust-preview https://github.com/embryo-labs/Blitzcrank.git
+cd Blitzcrank
+cargo test --release --locked
+cargo build --release --locked
+target/release/blitzcrank-rs capabilities --json
 ```
 
-The adapter imports immutable branch mappings after model construction (simple
-pool entries on first use), gathers handles per block and reuses a compressor-owned
-Rust workspace. It currently copies words into the existing `BitString` and adds
-mapping/handle memory. Do not edit branch mappings after import without clearing
-their cached Rust handles; lazy preparation must finish before concurrent sharing.
-This is not yet a zero-copy, fully migrated or production-accepted backend.
-
-For the real Census regression, first build the **unmodified** legacy revision
-`0ed9c97908c51440b30a2eef3c1b90325dd2c87c` separately. GCC 12 may need
-`-DCMAKE_CXX_FLAGS=-include\ cstdint` for that original source. Supply real data,
-not LFS pointer files. The test uses the first 20,000 rows and writes only inside
-the explicitly supplied, dedicated scratch directory:
+## Independent records
 
 ```sh
-cmake -DDATASET=/absolute/path/to/USCensus1990.dat \
-  -DCONFIG=/absolute/path/to/USCensus1990.config \
-  -DLEGACY_EXE=/absolute/path/to/legacy-build/tabular_blitzcrank \
-  -DRUST_EXE=/absolute/path/to/build-rust/tabular_blitzcrank \
-  -DVERIFY_EXE=/absolute/path/to/build-rust/verify_record_seeks \
-  -DWORK_DIR=/absolute/path/to/dedicated-regression-scratch \
-  -P tests/rust_encoder_roundtrip.cmake
+target/release/blitzcrank-rs compress-records data.csv schema.config records.bcr --json
+target/release/blitzcrank-rs inspect records.bcr --json
+target/release/blitzcrank-rs seek-record-bench records.bcr 1000000 --json
+target/release/blitzcrank-rs decompress records.bcr restored.csv --json
+cmp data.csv restored.csv
 ```
 
-At block thresholds 1 and 20,000 this verifies exact reconstruction, identical
-payload/model/index bytes and 8,200 shuffled/boundary record seeks across both
-backends. It does not establish JSON/time-series compatibility or rANS superiority.
-`tests/benchmark_bridge.cmake` accepts `LEGACY_EXE`, `RUST_EXE`, the same `WORK_DIR`,
-and `REPORT` CSV path; it runs five alternating samples with CPU 2 affinity.
-This measures the bridge against original C++ DC, not against rANS. The initial
-Census runs show modest encoding gains but a small retained-C++ decoding regression;
-see the standalone library's `benchmarks/BLITZCRANK_FOUR_STATE.md` for all results.
+`compress-records` defaults to **balanced**: one independently indexed row,
+independent field models, one DC state, full 16-bit probability precision.
+No decoded-row cache or workload-specific tuning is required.
 
-### Research datasets
+Open the archive and prepare a `record_reader()` once, then reuse a caller-owned
+`Record` for actual resident queries. Numeric dictionaries are prepared once;
+strings are copied as logical bytes. File I/O, CRC and model setup are not part
+of resident latency. Calling a fresh CLI process for each query pays those costs.
+See [the typed API](docs/RECORD_API.md) and [JSON agent contract](docs/AGENT_API.md).
 
-To clone this project successfully, ensure you have [git-lfs](https://git-lfs.com/) installed. We use it to manage large dataset files. Depending on your internet connection, the clone process may take several minutes to finish.
-
-## Project Structure
-
-The main project structure is as follows. Two versions of Blitzcrank are provided: `Delayed Coding` and `Arithmetic Coding`. You can switch between them by modifying the top-level `CMakeLists.txt`.
-
-
-```
-.
-├── CMakeLists.txt
-├── README.md
-├── LICENSE
-├── rapidjson    // it is a third-party library used to parse JSON.
-├── delayed_coding
-│         ├── CMakeLists.txt
-│         ├── include
-│         │         ├── base.h
-│         │         ├── blitzcrank_exception.h
-│         │         ├── categorical_model.h
-│         │         ├── categorical_tree_model.h
-│         │         ├── compression.h
-│         │         ├── data_io.h
-│         │         ├── decompression.h
-│         │         ├── index.h
-│         │         ├── json_base.h
-│         │         ├── json_compression.h
-│         │         ├── json_decompression.h
-│         │         ├── json_model.h
-│         │         ├── json_model_learner.h
-│         │         ├── model.h
-│         │         ├── model_learner.h
-│         │         ├── numerical_model.h
-│         │         ├── simple_prob_interval_pool.h
-│         │         ├── string_model.h
-│         │         ├── string_squid.h
-│         │         ├── string_tools.h
-│         │         ├── timeseries_model.h
-│         │         └── utility.h
-│         └── src
-│             ├── categorical_model.cpp
-│             ├── categorical_tree_model.cpp
-│             ├── compression.cpp
-│             ├── data_io.cpp
-│             ├── decompression.cpp
-│             ├── json_base.cpp
-│             ├── json_compression.cpp
-│             ├── json_decompression.cpp
-│             ├── json_model.cpp
-│             ├── json_model_learner.cpp
-│             ├── model.cpp
-│             ├── model_learner.cpp
-│             ├── numerical_model.cpp
-│             ├── simple_prob_interval_pool.cpp
-│             ├── string_model.cpp
-│             ├── string_squid.cpp
-│             ├── string_tools.cpp
-│             ├── timeseries_model.cpp
-│             └── utility.cpp
-├── plain_ra.cpp
-├── JSON.cpp
-└── tabular.cpp
-
+```rust
+use blitzcrank_rs::{Archive, record::Record};
+# fn example(bytes: &[u8]) -> blitzcrank_rs::Result<()> {
+let archive = Archive::open(bytes)?;
+let reader = archive.record_reader()?;
+let mut record = Record::default();
+reader.read(0, &mut record)?;
+# Ok(()) }
 ```
 
+For mixed-type v2 files, use `general::GeneralArchive::open` and the same
+`record_reader()` interface. `Table::from_columns` accepts owned typed
+INTEGER/ENUM columns without serializing them to CSV.
 
-## Build Instructions
+## Explicit tradeoffs
 
+| Choice | Command / API | Tradeoff |
+| --- | --- | --- |
+| Balanced records | `compress-records INPUT SCHEMA OUTPUT` | Default independent-row profile |
+| Ordinary bulk | `compress INPUT SCHEMA OUTPUT [256] [1]` | Better scan throughput/packing; whole-block random reads |
+| SIMD bulk | `compress-simd INPUT SCHEMA OUTPUT [4096]` | 64-state entropy streams; startup/table costs and read amplification |
+| Four-state records | `compress-records INPUT SCHEMA OUTPUT 4` | Explicit parallelism/space tradeoff |
 
-Cmake is an open-source, cross-platform family of tools designed to build, test, and package software. A cmake config is provided. It can generate Makefiles or other scripts to create `Blitzcrank` binary.
+Bulk integers use reversible wrapping-delta/zigzag bit packing; record integers
+use varints. High-cardinality exact fixed-scale numeric columns can use the
+same numeric representation. These are outer-pipeline codecs, not DC operations.
+Low-cardinality fields use dictionaries; high-cardinality lexical fields fall
+back to bytes. Ordinary bulk mode may share string prefixes within a block.
 
-We build `Blitzcrank` with:
+For hardware acceleration:
 
-```shell
-cd ./build-release
-cmake -DCMAKE_BUILD_TYPE=Release ..
-make
+```sh
+cargo build --release --locked --features avx512
+target/release/blitzcrank-rs compress-simd data.csv schema.config bulk.bcr --json
 ```
 
+AVX-512 has runtime detection and a byte-identical scalar fallback; portable
+builds can read SIMD-profile archives. It does not change balanced records.
+See [SIMD scope, memory budget and format](docs/SIMD.md). Neither wide SIMD nor extra
+states are assumed to help single-row reads.
 
-## Compression Instructions
+## Agent interface and output safety
 
-```shell
-./tabular_blitzcrank [mode] [dataset] [config] [if use "|" as delimiter] [if skip learning] [block size]
-```
+Discover commands with `capabilities --json`. Supported operations include
+`inspect`, `validate`, `decode-row`, `decode-rows`, compression and decompression.
+[The Python client](examples/agent_client.py) uses argument arrays, not a shell.
 
-- `[mode]`: 
-    - `-c` for compression
-    - `-d` for decompression
-    - `-b` for benchmarking
+Outputs must not exist. The CLI stages beside the target and atomically creates
+it without replacement; filesystems must support hard links. Failure removes
+the staging file; abrupt process termination may leave it. Flush is performed,
+but fsync/crash durability is not promised. No remote service or tool execution
+is hidden in the CLI.
 
-- `[dataset]`: path to the dataset
+## Correctness, limits and performance
 
-- `[config]`: path to the config file
+- Lossless CSV lexemes: comma/pipe, quoted and multiline fields, LF/CRLF,
+  final-newline state, negative zero and decimal spelling. Mixed line endings,
+  empty files and nonfinite numeric values are rejected.
+- Common limits: 1,024 columns, u32 rows/offsets, 65,536 rows per block,
+  4,194,304 cells per block, 1 MiB tokens and 64 MiB input records.
+- General v2 decoded blocks are capped at 64 MiB. Dictionary limits are 64 MiB
+  per general column / 1 GiB total; v1 dictionary data is capped at 64 MiB total.
+  These are format limits, not a process-RSS guarantee.
+- Input columns and the output archive are currently materialized in RAM.
+  This is not an out-of-core compressor. CRC detects accidental corruption,
+  not malicious modifications. Apply external memory/CPU/output limits.
+- [Benchmark evidence](benchmarks/README.md) separates resident queries from CSV
+  throughput and reports space costs. No universal 4x/10x claim is made.
+- Review and tests do not constitute a security audit. See
+  [review and development](docs/DEVELOPMENT.md).
 
-- `[if use "|" as delimiter]`: 
-    - 0 for comma
-    - 1 for "|"
+## Formats
 
-- `[if skip learning]`: 
-    - 0 for learning
-    - 1 for skipping learning
+`BLTZRS01`: canonical INTEGER/ENUM; `BLTZRS02`: mixed lexical CSV. Both embed
+models, dictionaries, block offsets and CRC32. No external sidecars are needed.
+The experimental joint/chunk formats and their APIs have been removed. Historical
+compatibility is not a goal of this preview; unsupported flags/codecs are rejected.
+The earlier release remains available under its immutable tag.
+See the [format reference](docs/FORMAT.md).
 
-- `[block size]`: block size for compression
-
-----
-
-### Example: USCensus1990
-
-Let's use the [USCensus1990](https://archive.ics.uci.edu/ml/datasets/US+Census+Data+(1990)) dataset as an example. You can find this dataset and its configuration file in the [build-release](https://github.com/YimingQiao/Blitzcrank/tree/main/build-release) folder. Alternatively, you can download the dataset directly from this [link](https://drive.google.com/file/d/1Lpo_LcmC0tqR-Gl7yyvPO7xIcwe5ZP9_/view?usp=drive_link). The configuration file is necessary for compressing or decompressing a dataset, as it contains metadata specific to the dataset. We've provided the config file for the USCensus1990 dataset.
-
-#### Benchmark Mode:
-
-
-    ./tabular_blitzcrank -b USCensus1990.dat USCensus1990.config 0 1 20000
-    
-    
-    Delimiter: ,	Skip Learning: 1	Block Size: 20000	
-    [Compression]	Start load data into memory...
-    Data loaded.
-    Model Size: 3.26465 KB. 
-    Throughput:  108.524 MiB/s	Time:  3.15137 s
-    [Decompression]	Block Size: 286 tuple
-    Throughput:  187.538 MiB/s	Time:  1.82363 s
-    [Compression Factor (Origin Size / CompressedSize)]: 11.5654
-    Compressed Size: 31030821
-
-
-#### Compress Mode:
-
-    ./tabular_blitzcrank -c USCensus1990.dat USCensus1990.com USCensus1990.config 0 1 20000
-
-
-    Delimiter: ,	Skip Learning: 1	Block Size: 20000	
-    Start load data into memory...
-    Data loaded.
-    Iteration 1 Starts
-    Model Size: 3.26465 KB. 
-    Compressed Size: 31030821
-    
-
-#### Decompress Mode
-
-    ./tabular_blitzcrank -d USCensus1990.com USCensus1990.rec USCensus1990.config 0 20000
-
-After the execution, we check the compression correctness:
-
-    diff USCensus1990.dat USCensus1990.rec
+[SIMD format extensions](docs/SIMD.md) document cumulative DC64 bulk streams.
