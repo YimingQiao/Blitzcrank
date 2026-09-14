@@ -1,0 +1,362 @@
+[
+  {
+    "dataset": "jena_climate",
+    "timings": {
+      "uniform": {
+        "cpp": {
+          "mean_ns_samples": [
+            771.4
+          ],
+          "median_mean_ns": 771.4,
+          "median_process_peak_rss_kib": 38768
+        },
+        "rust": {
+          "mean_ns_samples": [
+            301.145397
+          ],
+          "median_mean_ns": 301.145397,
+          "median_process_peak_rss_kib": 40140
+        },
+        "speedup": 2.5615533482651904
+      },
+      "zipf": {
+        "cpp": {
+          "mean_ns_samples": [
+            629.219
+          ],
+          "median_mean_ns": 629.219,
+          "median_process_peak_rss_kib": 39932
+        },
+        "rust": {
+          "mean_ns_samples": [
+            205.753965
+          ],
+          "median_mean_ns": 205.753965,
+          "median_process_peak_rss_kib": 40024
+        },
+        "speedup": 3.0581136067049792
+      }
+    },
+    "old_total_bytes": 14494924,
+    "new_total_bytes": 14153824,
+    "size_change": -0.023532375885516932,
+    "complete_timing_samples": true,
+    "full_new_validation": true,
+    "both_distributions_at_least_4x": false
+  },
+  {
+    "dataset": "covtype",
+    "timings": {
+      "uniform": {
+        "cpp": {
+          "mean_ns_samples": [
+            1092.13
+          ],
+          "median_mean_ns": 1092.13,
+          "median_process_peak_rss_kib": 38160
+        },
+        "rust": {
+          "mean_ns_samples": [
+            201.122811
+          ],
+          "median_mean_ns": 201.122811,
+          "median_process_peak_rss_kib": 37456
+        },
+        "speedup": 5.430164756398518
+      },
+      "zipf": {
+        "cpp": {
+          "mean_ns_samples": [
+            917.316
+          ],
+          "median_mean_ns": 917.316,
+          "median_process_peak_rss_kib": 38708
+        },
+        "rust": {
+          "mean_ns_samples": [
+            155.42718
+          ],
+          "median_mean_ns": 155.42718,
+          "median_process_peak_rss_kib": 37504
+        },
+        "speedup": 5.901902099748577
+      }
+    },
+    "old_total_bytes": 11447932,
+    "new_total_bytes": 21972963,
+    "size_change": 0.9193827321825461,
+    "complete_timing_samples": true,
+    "full_new_validation": true,
+    "both_distributions_at_least_4x": true
+  },
+  {
+    "dataset": "USCensus1990",
+    "timings": {
+      "uniform": {
+        "cpp": {
+          "mean_ns_samples": [
+            1497.5
+          ],
+          "median_mean_ns": 1497.5,
+          "median_process_peak_rss_kib": 90152
+        },
+        "rust": {
+          "mean_ns_samples": [
+            245.483128
+          ],
+          "median_mean_ns": 245.483128,
+          "median_process_peak_rss_kib": 87540
+        },
+        "speedup": 6.100215571637983
+      },
+      "zipf": {
+        "cpp": {
+          "mean_ns_samples": [
+            1294.08
+          ],
+          "median_mean_ns": 1294.08,
+          "median_process_peak_rss_kib": 89128
+        },
+        "rust": {
+          "mean_ns_samples": [
+            194.413446
+          ],
+          "median_mean_ns": 194.413446,
+          "median_process_peak_rss_kib": 87708
+        },
+        "speedup": 6.656329727317317
+      }
+    },
+    "old_total_bytes": 50559092,
+    "new_total_bytes": 64260398,
+    "size_change": 0.2709958873470275,
+    "complete_timing_samples": true,
+    "full_new_validation": true,
+    "both_distributions_at_least_4x": true
+  },
+  {
+    "dataset": "Food",
+    "timings": {
+      "uniform": {
+        "cpp": {
+          "mean_ns_samples": [
+            541.306
+          ],
+          "median_mean_ns": 541.306,
+          "median_process_peak_rss_kib": 134600
+        },
+        "rust": {
+          "mean_ns_samples": [
+            157.807998
+          ],
+          "median_mean_ns": 157.807998,
+          "median_process_peak_rss_kib": 135392
+        },
+        "speedup": 3.43015567563312
+      },
+      "zipf": {
+        "cpp": {
+          "mean_ns_samples": [
+            323.922
+          ],
+          "median_mean_ns": 323.922,
+          "median_process_peak_rss_kib": 131628
+        },
+        "rust": {
+          "mean_ns_samples": [
+            98.443632
+          ],
+          "median_mean_ns": 98.443632,
+          "median_process_peak_rss_kib": 135360
+        },
+        "speedup": 3.2904312185474835
+      }
+    },
+    "old_total_bytes": 62903401,
+    "new_total_bytes": 100953485,
+    "size_change": 0.6048970865661143,
+    "complete_timing_samples": true,
+    "full_new_validation": true,
+    "both_distributions_at_least_4x": false
+  },
+  {
+    "dataset": "Bimbo_1",
+    "timings": {
+      "uniform": {
+        "cpp": {
+          "mean_ns_samples": [
+            964.747
+          ],
+          "median_mean_ns": 964.747,
+          "median_process_peak_rss_kib": 593912
+        },
+        "rust": {
+          "mean_ns_samples": [
+            309.760449
+          ],
+          "median_mean_ns": 309.760449,
+          "median_process_peak_rss_kib": 534680
+        },
+        "speedup": 3.1144938067932615
+      },
+      "zipf": {
+        "cpp": {
+          "mean_ns_samples": [
+            535.927
+          ],
+          "median_mean_ns": 535.927,
+          "median_process_peak_rss_kib": 593060
+        },
+        "rust": {
+          "mean_ns_samples": [
+            172.775105
+          ],
+          "median_mean_ns": 172.775105,
+          "median_process_peak_rss_kib": 534576
+        },
+        "speedup": 3.1018762801504303
+      }
+    },
+    "old_total_bytes": 304016037,
+    "new_total_bytes": 440284059,
+    "size_change": 0.4482264269499705,
+    "complete_timing_samples": true,
+    "full_new_validation": true,
+    "both_distributions_at_least_4x": false
+  },
+  {
+    "dataset": "YaleLanguages",
+    "timings": {
+      "uniform": {
+        "cpp": {
+          "mean_ns_samples": [
+            1114.16
+          ],
+          "median_mean_ns": 1114.16,
+          "median_process_peak_rss_kib": 203696
+        },
+        "rust": {
+          "mean_ns_samples": [
+            342.192186
+          ],
+          "median_mean_ns": 342.192186,
+          "median_process_peak_rss_kib": 235400
+        },
+        "speedup": 3.255948106307723
+      },
+      "zipf": {
+        "cpp": {
+          "mean_ns_samples": [
+            913.387
+          ],
+          "median_mean_ns": 913.387,
+          "median_process_peak_rss_kib": 202756
+        },
+        "rust": {
+          "mean_ns_samples": [
+            225.794685
+          ],
+          "median_mean_ns": 225.794685,
+          "median_process_peak_rss_kib": 235356
+        },
+        "speedup": 4.045210364451227
+      }
+    },
+    "old_total_bytes": 135007404,
+    "new_total_bytes": 193270314,
+    "size_change": 0.43155344280229246,
+    "complete_timing_samples": true,
+    "full_new_validation": true,
+    "both_distributions_at_least_4x": false
+  },
+  {
+    "dataset": "Arade_1",
+    "timings": {
+      "uniform": {
+        "cpp": {
+          "mean_ns_samples": [
+            761.625
+          ],
+          "median_mean_ns": 761.625,
+          "median_process_peak_rss_kib": 308432
+        },
+        "rust": {
+          "mean_ns_samples": [
+            281.172971
+          ],
+          "median_mean_ns": 281.172971,
+          "median_process_peak_rss_kib": 419160
+        },
+        "speedup": 2.7087418726318466
+      },
+      "zipf": {
+        "cpp": {
+          "mean_ns_samples": [
+            508.955
+          ],
+          "median_mean_ns": 508.955,
+          "median_process_peak_rss_kib": 308844
+        },
+        "rust": {
+          "mean_ns_samples": [
+            174.01551
+          ],
+          "median_mean_ns": 174.01551,
+          "median_process_peak_rss_kib": 419044
+        },
+        "speedup": 2.9247680278614245
+      }
+    },
+    "old_total_bytes": 212180384,
+    "new_total_bytes": 375400006,
+    "size_change": 0.7692493477625151,
+    "complete_timing_samples": true,
+    "full_new_validation": true,
+    "both_distributions_at_least_4x": false
+  },
+  {
+    "dataset": "cps",
+    "timings": {
+      "uniform": {
+        "cpp": {
+          "mean_ns_samples": [
+            3802.82
+          ],
+          "median_mean_ns": 3802.82,
+          "median_process_peak_rss_kib": 49264
+        },
+        "rust": {
+          "mean_ns_samples": [
+            488.614371
+          ],
+          "median_mean_ns": 488.614371,
+          "median_process_peak_rss_kib": 48028
+        },
+        "speedup": 7.782865641501977
+      },
+      "zipf": {
+        "cpp": {
+          "mean_ns_samples": [
+            3515.92
+          ],
+          "median_mean_ns": 3515.92,
+          "median_process_peak_rss_kib": 48808
+        },
+        "rust": {
+          "mean_ns_samples": [
+            428.349443
+          ],
+          "median_mean_ns": 428.349443,
+          "median_process_peak_rss_kib": 48036
+        },
+        "speedup": 8.208064834579464
+      }
+    },
+    "old_total_bytes": 23090283,
+    "new_total_bytes": 31507018,
+    "size_change": 0.3645141551534903,
+    "complete_timing_samples": true,
+    "full_new_validation": true,
+    "both_distributions_at_least_4x": true
+  }
+]

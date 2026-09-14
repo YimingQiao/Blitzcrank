@@ -1,0 +1,45 @@
+name: Rust preview
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            rust: '1.88.0'
+            features: ''
+          - os: ubuntu-latest
+            rust: stable
+            features: '--all-features'
+          - os: ubuntu-24.04-arm
+            rust: stable
+            features: '--all-features'
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: rust
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ matrix.rust }}
+          components: rustfmt, clippy
+      - run: cargo fmt --check
+      - run: cargo clippy --locked --all-targets ${{ matrix.features }} -- -D warnings
+      - run: cargo test --locked ${{ matrix.features }}
+      - run: cargo test --locked --release ${{ matrix.features }}
+      - run: cargo run --locked --release -- capabilities --json
+      - run: python3 -m py_compile examples/agent_client.py benchmarks/*.py
+  cpp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - run: cmake --build build -j2

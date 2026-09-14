@@ -1,0 +1,100 @@
+{
+  "cpu": 2,
+  "runs": 3,
+  "states": 1,
+  "rust_source_snapshot": "/tmp/blitzcrank-paper-matrix.i37bisjf/source",
+  "measurement": "single-core full CLI wall time; warm page cache; no fsync; verification outside timing",
+  "cpp_skip_conditional_learning": true,
+  "executables": {
+    "cpp": {
+      "original": "/tmp/blitzcrank-oracle.Q9h5TK/build/tabular_blitzcrank",
+      "sha256": "a099892b0be401caa1387cfcf8466b214e9c22430240644a0e3266aa9965baeb"
+    },
+    "rust": {
+      "original": "/home/yiming/projects/Blitzcrank-delayed-coding/rust/target/release/blitzcrank-rs",
+      "sha256": "28f3409876e14c806b8e44c050f9ef55b5f0f7714c7d7b9668657fa4ff063768"
+    }
+  },
+  "datasets": {
+    "jena_climate": {
+      "source": "/home/yiming/projects/Blitzcrank/playground/tables/jena_climate.dat",
+      "sha256": "81f31c34961f8725a63e180ebfd6ff8141863d0e7384d89e3360ee8c8e3fee93",
+      "bytes": 58303861,
+      "unquoted_lf_sha256": "81f31c34961f8725a63e180ebfd6ff8141863d0e7384d89e3360ee8c8e3fee93",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/jena_climate.config",
+      "config_sha256": "711bbbc8a93dc02968c38a05c331c93ff2d19d8f6439d76e0f7eed83a179b16f",
+      "delimiter": ",",
+      "paper_identity": "see paper_inventory.json"
+    },
+    "USCensus1990": {
+      "source": "/home/yiming/projects/Blitzcrank/playground/tables/USCensus1990.dat",
+      "sha256": "7832d5412b8304ae23b697bcf7226a073326a672ef9b187117579bfe0eae6021",
+      "bytes": 358885350,
+      "unquoted_lf_sha256": "7832d5412b8304ae23b697bcf7226a073326a672ef9b187117579bfe0eae6021",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/USCensus1990.config",
+      "config_sha256": "d72d29c8a7f43103d746991edce72a60c219352906735f83408c6bea9990d744",
+      "delimiter": ",",
+      "paper_identity": "see paper_inventory.json"
+    },
+    "covtype": {
+      "source": "/home/yiming/projects/Blitzcrank/playground/tables/covtype.dat",
+      "sha256": "0a9371cef7c964b5475d6053cc3e0894a5aa6f65ad1ed3ecb01c45aa96217945",
+      "bytes": 75169317,
+      "unquoted_lf_sha256": "0a9371cef7c964b5475d6053cc3e0894a5aa6f65ad1ed3ecb01c45aa96217945",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/covtype.config",
+      "config_sha256": "313e18a16520f53c77bc77df4196902109d262eb183c07de7dddf7ef97f71ec8",
+      "delimiter": ",",
+      "paper_identity": "see paper_inventory.json"
+    },
+    "cps": {
+      "source": "/home/yiming/projects/Blitzcrank/playground/tables/cps.dat",
+      "sha256": "3ad8774b89abf9276a35140f33a331b36627f63dc1daf3142efb99bdc567a6fd",
+      "bytes": 135819540,
+      "unquoted_lf_sha256": "3ad8774b89abf9276a35140f33a331b36627f63dc1daf3142efb99bdc567a6fd",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/cps.config",
+      "config_sha256": "92ba7aeca3b84ad12f52ed7d52e9eebb78abc2560d27abe64d2f8a7655ac8c34",
+      "delimiter": ",",
+      "paper_identity": "UNCONFIRMED"
+    },
+    "Food": {
+      "source": "/home/yiming/projects/Blitzcrank/playground/tables/Food.dat",
+      "sha256": "0e80c5f1f4a76fda4e8739b9b0ab0d9b9d4abadf2149c07243001768c539fa8d",
+      "bytes": 183440700,
+      "unquoted_lf_sha256": "4bb70027172a2e2712bce07d15eaf9c5091ea9a9d98b2d6a24524fb0569fd7c8",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/Food.config",
+      "config_sha256": "f5ca39ddb89b371ea6d355551eff554b40a6ddf0ec068abdaea28428b6a734b5",
+      "delimiter": ",",
+      "paper_identity": "see paper_inventory.json"
+    },
+    "YaleLanguages": {
+      "source": "/home/yiming/projects/Blitzcrank/playground/tables/YaleLanguages.dat",
+      "sha256": "382714eb21f7566916b8b8809a6456c4c8199c21e328fb6ac33eb21029a40660",
+      "bytes": 1714687521,
+      "unquoted_lf_sha256": "9f6bcf934b0d4e4c359d5f4d1f64f0fbcc398bf24c9b30bcefac73349ad01640",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/YaleLanguages.config",
+      "config_sha256": "f0df9b133866460dbe36eafd0072c22effd0cbd707498d55abf43e8c8566475a",
+      "delimiter": ",",
+      "paper_identity": "see paper_inventory.json"
+    },
+    "Arade_1": {
+      "source": "/home/yiming/projects/Blitzcrank/playground/tables/Arade_1.dat",
+      "sha256": "3ab47a68ba3732d67cbb933fe3cdfbbb7aca71f622ee62d5de2c3e0722d740d8",
+      "bytes": 911153271,
+      "unquoted_lf_sha256": "31a2db659dd4ae90adffba5f9e9dd1024c744b9b4db23d46c55ec62d5c7ec8ae",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/Arade_1.config",
+      "config_sha256": "9e6f608f400fd9b74a0b02d1131f4ac25bab7e4e47b014ae286c5e62e6e93e3e",
+      "delimiter": ",",
+      "paper_identity": "see paper_inventory.json"
+    },
+    "Bimbo_1": {
+      "source": "/home/yiming/projects/Blitzcrank/playground/tables/Bimbo_1.dat",
+      "sha256": "f9df0684846ba1f239e7ddc83bd5b9f5a34f6322b4e59963501241ddece53731",
+      "bytes": 1122226482,
+      "unquoted_lf_sha256": "b79dcbaca2b7ca0f6ddca04c9de19e60082850cf09bc2ad789e61c999030984a",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/Bimbo_1.config",
+      "config_sha256": "922d8a54ed04b8c560060eb2c30ef08c0e04f741f02bae266b5b3986ec93953a",
+      "delimiter": ",",
+      "paper_identity": "see paper_inventory.json"
+    }
+  }
+}

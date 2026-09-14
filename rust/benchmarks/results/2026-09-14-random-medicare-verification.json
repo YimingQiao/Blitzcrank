@@ -1,0 +1,27 @@
+{
+  "archive_sha256": "2db6f6ffa48032049cffbae8dcbd123d0cb8616ce8c6763e55b3637b160b1deb",
+  "verification": [
+    {
+      "dataset": "Medicare1_1",
+      "typed_exit": 0,
+      "typed": {
+        "mean_ns_per_row": 0,
+        "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+        "prepared_bytes": 11511300,
+        "queries": 0,
+        "setup_included": false,
+        "verified_rows": 8645072,
+        "warmup_queries": 1
+      },
+      "csv_exit": 0,
+      "source_sha256": "5fdb00d96b2f7de673516b340d9cb9feb43caf41f0c2bf42ea293f22877b6de0",
+      "decoded_sha256": "5fdb00d96b2f7de673516b340d9cb9feb43caf41f0c2bf42ea293f22877b6de0",
+      "byte_exact": true,
+      "decode_error": ""
+    }
+  ],
+  "trace_sha256": {
+    "uniform": "93bef020b91649d457a91cce695f704db01b03d5ddf34d2ffd2ceac3b546f834",
+    "zipf": "5df172a3e2a1ca9426354ce1f2bbcfac6c68f6b1841e1eb1a983be70b6b8261a"
+  }
+}

@@ -1,0 +1,386 @@
+[
+  {
+    "dataset": "jena_climate",
+    "mode": "record",
+    "counts": {
+      "cpp": 1,
+      "rust": 1
+    },
+    "status": "passed",
+    "timings": {
+      "cpp": {
+        "encode": {
+          "min_s": 1.21,
+          "median_s": 1.21,
+          "max_s": 1.21,
+          "median_max_rss_kib": 252828
+        },
+        "decode": {
+          "min_s": 1.7,
+          "median_s": 1.7,
+          "max_s": 1.7,
+          "median_max_rss_kib": 23848
+        }
+      },
+      "rust": {
+        "encode": {
+          "min_s": 0.56,
+          "median_s": 0.56,
+          "max_s": 0.56,
+          "median_max_rss_kib": 45652
+        },
+        "decode": {
+          "min_s": 0.22,
+          "median_s": 0.22,
+          "max_s": 0.22,
+          "median_max_rss_kib": 26124
+        }
+      }
+    },
+    "speedups": {
+      "encode": 2.1607142857142856,
+      "decode": 7.727272727272727
+    },
+    "size_change_fraction": -0.19056919511961568,
+    "total_bytes": {
+      "cpp": 14494924,
+      "rust": 11732638
+    }
+  },
+  {
+    "dataset": "USCensus1990",
+    "mode": "record",
+    "counts": {
+      "cpp": 1,
+      "rust": 1
+    },
+    "status": "passed",
+    "timings": {
+      "cpp": {
+        "encode": {
+          "min_s": 18.17,
+          "median_s": 18.17,
+          "max_s": 18.17,
+          "median_max_rss_kib": 6709616
+        },
+        "decode": {
+          "min_s": 8.32,
+          "median_s": 8.32,
+          "max_s": 8.32,
+          "median_max_rss_kib": 80724
+        }
+      },
+      "rust": {
+        "encode": {
+          "min_s": 4.67,
+          "median_s": 4.67,
+          "max_s": 4.67,
+          "median_max_rss_kib": 403936
+        },
+        "decode": {
+          "min_s": 2.66,
+          "median_s": 2.66,
+          "max_s": 2.66,
+          "median_max_rss_kib": 72700
+        }
+      }
+    },
+    "speedups": {
+      "encode": 3.8907922912205573,
+      "decode": 3.1278195488721803
+    },
+    "size_change_fraction": 0.015709400002674068,
+    "total_bytes": {
+      "cpp": 50559092,
+      "rust": 51353345
+    }
+  },
+  {
+    "dataset": "covtype",
+    "mode": "record",
+    "counts": {
+      "cpp": 1,
+      "rust": 1
+    },
+    "status": "passed",
+    "timings": {
+      "cpp": {
+        "encode": {
+          "min_s": 2.93,
+          "median_s": 2.93,
+          "max_s": 2.93,
+          "median_max_rss_kib": 1272736
+        },
+        "decode": {
+          "min_s": 1.56,
+          "median_s": 1.56,
+          "max_s": 1.56,
+          "median_max_rss_kib": 23112
+        }
+      },
+      "rust": {
+        "encode": {
+          "min_s": 0.6,
+          "median_s": 0.6,
+          "max_s": 0.6,
+          "median_max_rss_kib": 113780
+        },
+        "decode": {
+          "min_s": 0.46,
+          "median_s": 0.46,
+          "max_s": 0.46,
+          "median_max_rss_kib": 22440
+        }
+      }
+    },
+    "speedups": {
+      "encode": 4.883333333333334,
+      "decode": 3.391304347826087
+    },
+    "size_change_fraction": 0.3146410198802718,
+    "total_bytes": {
+      "cpp": 11447932,
+      "rust": 15049921
+    }
+  },
+  {
+    "dataset": "cps",
+    "mode": "record",
+    "counts": {
+      "cpp": 1,
+      "rust": 1
+    },
+    "status": "passed",
+    "timings": {
+      "cpp": {
+        "encode": {
+          "min_s": 6.16,
+          "median_s": 6.16,
+          "max_s": 6.16,
+          "median_max_rss_kib": 2103892
+        },
+        "decode": {
+          "min_s": 3.16,
+          "median_s": 3.16,
+          "max_s": 3.16,
+          "median_max_rss_kib": 38392
+        }
+      },
+      "rust": {
+        "encode": {
+          "min_s": 1.25,
+          "median_s": 1.25,
+          "max_s": 1.25,
+          "median_max_rss_kib": 199148
+        },
+        "decode": {
+          "min_s": 0.96,
+          "median_s": 0.96,
+          "max_s": 0.96,
+          "median_max_rss_kib": 34688
+        }
+      }
+    },
+    "speedups": {
+      "encode": 4.928,
+      "decode": 3.291666666666667
+    },
+    "size_change_fraction": 0.2722550866959925,
+    "total_bytes": {
+      "cpp": 23090283,
+      "rust": 29376730
+    }
+  },
+  {
+    "dataset": "Food",
+    "mode": "record",
+    "counts": {
+      "cpp": 1,
+      "rust": 1
+    },
+    "status": "passed",
+    "timings": {
+      "cpp": {
+        "encode": {
+          "min_s": 6.64,
+          "median_s": 6.64,
+          "max_s": 6.64,
+          "median_max_rss_kib": 1199440
+        },
+        "decode": {
+          "min_s": 2.15,
+          "median_s": 2.15,
+          "max_s": 2.15,
+          "median_max_rss_kib": 118604
+        }
+      },
+      "rust": {
+        "encode": {
+          "min_s": 1.97,
+          "median_s": 1.97,
+          "max_s": 1.97,
+          "median_max_rss_kib": 150644
+        },
+        "decode": {
+          "min_s": 0.74,
+          "median_s": 0.74,
+          "max_s": 0.74,
+          "median_max_rss_kib": 104044
+        }
+      }
+    },
+    "speedups": {
+      "encode": 3.3705583756345177,
+      "decode": 2.9054054054054053
+    },
+    "size_change_fraction": -0.04177977594565996,
+    "total_bytes": {
+      "cpp": 62903401,
+      "rust": 60275311
+    }
+  },
+  {
+    "dataset": "YaleLanguages",
+    "mode": "record",
+    "counts": {
+      "cpp": 1,
+      "rust": 1
+    },
+    "status": "passed",
+    "timings": {
+      "cpp": {
+        "encode": {
+          "min_s": 26.1,
+          "median_s": 26.1,
+          "max_s": 26.1,
+          "median_max_rss_kib": 7525772
+        },
+        "decode": {
+          "min_s": 12.5,
+          "median_s": 12.5,
+          "max_s": 12.5,
+          "median_max_rss_kib": 187956
+        }
+      },
+      "rust": {
+        "encode": {
+          "min_s": 10.93,
+          "median_s": 10.93,
+          "max_s": 10.93,
+          "median_max_rss_kib": 640588
+        },
+        "decode": {
+          "min_s": 4.51,
+          "median_s": 4.51,
+          "max_s": 4.51,
+          "median_max_rss_kib": 203308
+        }
+      }
+    },
+    "speedups": {
+      "encode": 2.3879231473010067,
+      "decode": 2.771618625277162
+    },
+    "size_change_fraction": 0.16087023642051523,
+    "total_bytes": {
+      "cpp": 135007404,
+      "rust": 156726077
+    }
+  },
+  {
+    "dataset": "Arade_1",
+    "mode": "record",
+    "counts": {
+      "cpp": 1,
+      "rust": 1
+    },
+    "status": "passed",
+    "timings": {
+      "cpp": {
+        "encode": {
+          "min_s": 20.95,
+          "median_s": 20.95,
+          "max_s": 20.95,
+          "median_max_rss_kib": 5036416
+        },
+        "decode": {
+          "min_s": 18.24,
+          "median_s": 18.24,
+          "max_s": 18.24,
+          "median_max_rss_kib": 305512
+        }
+      },
+      "rust": {
+        "encode": {
+          "min_s": 10.17,
+          "median_s": 10.17,
+          "max_s": 10.17,
+          "median_max_rss_kib": 1108108
+        },
+        "decode": {
+          "min_s": 4.94,
+          "median_s": 4.94,
+          "max_s": 4.94,
+          "median_max_rss_kib": 423888
+        }
+      }
+    },
+    "speedups": {
+      "encode": 2.0599803343166174,
+      "decode": 3.6923076923076916
+    },
+    "size_change_fraction": 0.656579983378671,
+    "total_bytes": {
+      "cpp": 212180384,
+      "rust": 351493777
+    }
+  },
+  {
+    "dataset": "Bimbo_1",
+    "mode": "record",
+    "counts": {
+      "cpp": 1,
+      "rust": 1
+    },
+    "status": "passed",
+    "timings": {
+      "cpp": {
+        "encode": {
+          "min_s": 38.74,
+          "median_s": 38.74,
+          "max_s": 38.74,
+          "median_max_rss_kib": 10429648
+        },
+        "decode": {
+          "min_s": 21.03,
+          "median_s": 21.03,
+          "max_s": 21.03,
+          "median_max_rss_kib": 576468
+        }
+      },
+      "rust": {
+        "encode": {
+          "min_s": 15.01,
+          "median_s": 15.01,
+          "max_s": 15.01,
+          "median_max_rss_kib": 990224
+        },
+        "decode": {
+          "min_s": 6.51,
+          "median_s": 6.51,
+          "max_s": 6.51,
+          "median_max_rss_kib": 488716
+        }
+      }
+    },
+    "speedups": {
+      "encode": 2.5809460359760164,
+      "decode": 3.230414746543779
+    },
+    "size_change_fraction": 0.07908194329893203,
+    "total_bytes": {
+      "cpp": 304016037,
+      "rust": 328058216
+    }
+  }
+]

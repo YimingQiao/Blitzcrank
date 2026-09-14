@@ -1,0 +1,83 @@
+{
+  "dataset": "Medicare1_1",
+  "cpu": 2,
+  "old_comparison": "invalid historical numeric tolerance; no speedup claim",
+  "reader_sha256": "cc67e3d741f9dce90e707b4c2a078a9234906ed0455877cb6ff47dcdd975f9f2",
+  "archive": "/tmp/blitzcrank-record4.2op_r5il/Medicare1_1-record-rust-1/payload.bin",
+  "archive_bytes": 473628799,
+  "verification": "/tmp/blitzcrank-record-verify.5zf1_bz5/results.json",
+  "samples": [
+    {
+      "distribution": "uniform",
+      "run": 1,
+      "mean_ns_per_row": 682.064661,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 11511300,
+      "queries": 1000000,
+      "setup_included": false,
+      "verified_rows": 1000,
+      "warmup_queries": 1000,
+      "process_peak_rss_kib": 537940
+    },
+    {
+      "distribution": "uniform",
+      "run": 2,
+      "mean_ns_per_row": 676.258034,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 11511300,
+      "queries": 1000000,
+      "setup_included": false,
+      "verified_rows": 1000,
+      "warmup_queries": 1000,
+      "process_peak_rss_kib": 538056
+    },
+    {
+      "distribution": "uniform",
+      "run": 3,
+      "mean_ns_per_row": 673.080726,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 11511300,
+      "queries": 1000000,
+      "setup_included": false,
+      "verified_rows": 1000,
+      "warmup_queries": 1000,
+      "process_peak_rss_kib": 537804
+    },
+    {
+      "distribution": "zipf",
+      "run": 1,
+      "mean_ns_per_row": 420.567702,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 11511300,
+      "queries": 1000000,
+      "setup_included": false,
+      "verified_rows": 1000,
+      "warmup_queries": 1000,
+      "process_peak_rss_kib": 537996
+    },
+    {
+      "distribution": "zipf",
+      "run": 2,
+      "mean_ns_per_row": 420.294105,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 11511300,
+      "queries": 1000000,
+      "setup_included": false,
+      "verified_rows": 1000,
+      "warmup_queries": 1000,
+      "process_peak_rss_kib": 537920
+    },
+    {
+      "distribution": "zipf",
+      "run": 3,
+      "mean_ns_per_row": 417.839919,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 11511300,
+      "queries": 1000000,
+      "setup_included": false,
+      "verified_rows": 1000,
+      "warmup_queries": 1000,
+      "process_peak_rss_kib": 537928
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "dataset": "jena_climate",
+    "mode": "bulk",
+    "counts": {
+      "cpp": 3,
+      "rust": 3
+    },
+    "status": "passed",
+    "timings": {
+      "cpp": {
+        "encode": {
+          "min_s": 1.18,
+          "median_s": 1.19,
+          "max_s": 1.2,
+          "median_max_rss_kib": 303184
+        },
+        "decode": {
+          "min_s": 1.67,
+          "median_s": 1.68,
+          "max_s": 1.68,
+          "median_max_rss_kib": 20636
+        }
+      },
+      "rust": {
+        "encode": {
+          "min_s": 0.49,
+          "median_s": 0.49,
+          "max_s": 0.5,
+          "median_max_rss_kib": 43312
+        },
+        "decode": {
+          "min_s": 0.15,
+          "median_s": 0.15,
+          "max_s": 0.16,
+          "median_max_rss_kib": 20860
+        }
+      }
+    },
+    "speedups": {
+      "encode": 2.4285714285714284,
+      "decode": 11.2
+    },
+    "size_change_fraction": -0.1768946687972034,
+    "total_bytes": {
+      "cpp": 11644014,
+      "rust": 9584250
+    }
+  },
+  {
+    "dataset": "USCensus1990",
+    "mode": "bulk",
+    "counts": {
+      "cpp": 3,
+      "rust": 3
+    },
+    "status": "passed",
+    "timings": {
+      "cpp": {
+        "encode": {
+          "min_s": 19.1,
+          "median_s": 19.26,
+          "max_s": 19.28,
+          "median_max_rss_kib": 6759320
+        },
+        "decode": {
+          "min_s": 8.27,
+          "median_s": 8.29,
+          "max_s": 8.3,
+          "median_max_rss_kib": 37088
+        }
+      },
+      "rust": {
+        "encode": {
+          "min_s": 4.19,
+          "median_s": 4.19,
+          "max_s": 4.26,
+          "median_max_rss_kib": 396536
+        },
+        "decode": {
+          "min_s": 2.44,
+          "median_s": 2.44,
+          "max_s": 2.45,
+          "median_max_rss_kib": 33376
+        }
+      }
+    },
+    "speedups": {
+      "encode": 4.5966587112171835,
+      "decode": 3.3975409836065573
+    },
+    "size_change_fraction": -0.011113638969429518,
+    "total_bytes": {
+      "cpp": 31067142,
+      "rust": 30721873
+    }
+  },
+  {
+    "dataset": "Arade_1",
+    "mode": "bulk",
+    "counts": {
+      "cpp": 3,
+      "rust": 3
+    },
+    "status": "passed",
+    "timings": {
+      "cpp": {
+        "encode": {
+          "min_s": 21.49,
+          "median_s": 21.64,
+          "max_s": 21.92,
+          "median_max_rss_kib": 5087516
+        },
+        "decode": {
+          "min_s": 17.96,
+          "median_s": 17.99,
+          "max_s": 18.0,
+          "median_max_rss_kib": 266552
+        }
+      },
+      "rust": {
+        "encode": {
+          "min_s": 6.69,
+          "median_s": 6.69,
+          "max_s": 6.71,
+          "median_max_rss_kib": 1041360
+        },
+        "decode": {
+          "min_s": 2.83,
+          "median_s": 2.83,
+          "max_s": 2.87,
+          "median_max_rss_kib": 173520
+        }
+      }
+    },
+    "speedups": {
+      "encode": 3.234678624813154,
+      "decode": 6.356890459363957
+    },
+    "size_change_fraction": 0.27395130229392084,
+    "total_bytes": {
+      "cpp": 136488236,
+      "rust": 173879366
+    }
+  }
+]

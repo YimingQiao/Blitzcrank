@@ -1,0 +1,82 @@
+[
+  {
+    "dataset": "jena_climate",
+    "mode": "bulk",
+    "old_encode_median_s": 1.18,
+    "target_10x_budget_s": 0.118,
+    "parse_median_s": 0.570763601,
+    "residual_if_model_encode_crc_free_s": 0.5809311859999999,
+    "optimistic_speedup_with_other_stages_unchanged": 2.031221646276019,
+    "scope": "conditional current-stage budget; not a physical lower bound or proof against future algorithms"
+  },
+  {
+    "dataset": "USCensus1990",
+    "mode": "bulk",
+    "old_encode_median_s": 16.08,
+    "target_10x_budget_s": 1.6079999999999999,
+    "parse_median_s": 1.914248079,
+    "residual_if_model_encode_crc_free_s": 1.9410146180000005,
+    "optimistic_speedup_with_other_stages_unchanged": 8.284327099282049,
+    "scope": "conditional current-stage budget; not a physical lower bound or proof against future algorithms"
+  },
+  {
+    "dataset": "covtype",
+    "mode": "bulk",
+    "old_encode_median_s": 2.69,
+    "target_10x_budget_s": 0.269,
+    "parse_median_s": 0.375955517,
+    "residual_if_model_encode_crc_free_s": 0.380151646,
+    "optimistic_speedup_with_other_stages_unchanged": 7.076123510984351,
+    "scope": "conditional current-stage budget; not a physical lower bound or proof against future algorithms"
+  },
+  {
+    "dataset": "cps",
+    "mode": "bulk",
+    "old_encode_median_s": 5.49,
+    "target_10x_budget_s": 0.549,
+    "parse_median_s": 0.558673985,
+    "residual_if_model_encode_crc_free_s": 0.5776542940000001,
+    "optimistic_speedup_with_other_stages_unchanged": 9.503954280308697,
+    "scope": "conditional current-stage budget; not a physical lower bound or proof against future algorithms"
+  },
+  {
+    "dataset": "Food",
+    "mode": "bulk",
+    "old_encode_median_s": 6.32,
+    "target_10x_budget_s": 0.632,
+    "parse_median_s": 1.223555773,
+    "residual_if_model_encode_crc_free_s": 1.242799421,
+    "optimistic_speedup_with_other_stages_unchanged": 5.085293646914244,
+    "scope": "conditional current-stage budget; not a physical lower bound or proof against future algorithms"
+  },
+  {
+    "dataset": "YaleLanguages",
+    "mode": "bulk",
+    "old_encode_median_s": 24.54,
+    "target_10x_budget_s": 2.4539999999999997,
+    "parse_median_s": 7.060799895,
+    "residual_if_model_encode_crc_free_s": 7.124631114000001,
+    "optimistic_speedup_with_other_stages_unchanged": 3.4443888542914944,
+    "scope": "conditional current-stage budget; not a physical lower bound or proof against future algorithms"
+  },
+  {
+    "dataset": "Arade_1",
+    "mode": "bulk",
+    "old_encode_median_s": 22.72,
+    "target_10x_budget_s": 2.272,
+    "parse_median_s": 5.631896106,
+    "residual_if_model_encode_crc_free_s": 5.8555999000000005,
+    "optimistic_speedup_with_other_stages_unchanged": 3.8800465175224823,
+    "scope": "conditional current-stage budget; not a physical lower bound or proof against future algorithms"
+  },
+  {
+    "dataset": "Bimbo_1",
+    "mode": "bulk",
+    "old_encode_median_s": 42.45,
+    "target_10x_budget_s": 4.245,
+    "parse_median_s": 8.179177045,
+    "residual_if_model_encode_crc_free_s": 8.37456225,
+    "optimistic_speedup_with_other_stages_unchanged": 5.0689216621441915,
+    "scope": "conditional current-stage budget; not a physical lower bound or proof against future algorithms"
+  }
+]

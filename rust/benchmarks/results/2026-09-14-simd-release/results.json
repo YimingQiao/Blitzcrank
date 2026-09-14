@@ -1,0 +1,353 @@
+[
+  {
+    "dataset": "jena_climate",
+    "backend": "portable",
+    "profile": "compress-simd",
+    "decoder": "avx512",
+    "source_sha256": "81f31c34961f8725a63e180ebfd6ff8141863d0e7384d89e3360ee8c8e3fee93",
+    "schema_sha256": "711bbbc8a93dc02968c38a05c331c93ff2d19d8f6439d76e0f7eed83a179b16f",
+    "archive_sha256": "680a65c666777649450a24580b263b35a2965a1dddeb1cc798a5416b534e5420",
+    "restored_sha256": "81f31c34961f8725a63e180ebfd6ff8141863d0e7384d89e3360ee8c8e3fee93",
+    "bytes": 9457720,
+    "encode_s": 0.5096828546375036,
+    "decode_s": 0.15201744250953197,
+    "encode": {
+      "api_version": 1,
+      "command": "compress-simd",
+      "ok": true,
+      "result": {
+        "avx512_available": false,
+        "block_rows": 4096,
+        "bytes": 9457720,
+        "independent_records": false,
+        "profile": "simd-bulk",
+        "rows": 420551
+      }
+    },
+    "decode": {
+      "api_version": 1,
+      "command": "decompress",
+      "ok": true,
+      "result": {
+        "rows": 420551,
+        "timings_s": {
+          "decode_csv_write": 0.130672469,
+          "read_crc_model": 0.019105033
+        }
+      }
+    }
+  },
+  {
+    "dataset": "jena_climate",
+    "backend": "avx512",
+    "profile": "compress-simd",
+    "decoder": "portable",
+    "source_sha256": "81f31c34961f8725a63e180ebfd6ff8141863d0e7384d89e3360ee8c8e3fee93",
+    "schema_sha256": "711bbbc8a93dc02968c38a05c331c93ff2d19d8f6439d76e0f7eed83a179b16f",
+    "archive_sha256": "680a65c666777649450a24580b263b35a2965a1dddeb1cc798a5416b534e5420",
+    "restored_sha256": "81f31c34961f8725a63e180ebfd6ff8141863d0e7384d89e3360ee8c8e3fee93",
+    "bytes": 9457720,
+    "encode_s": 0.5050079580396414,
+    "decode_s": 0.15386993996798992,
+    "encode": {
+      "api_version": 1,
+      "command": "compress-simd",
+      "ok": true,
+      "result": {
+        "avx512_available": true,
+        "block_rows": 4096,
+        "bytes": 9457720,
+        "independent_records": false,
+        "profile": "simd-bulk",
+        "rows": 420551
+      }
+    },
+    "decode": {
+      "api_version": 1,
+      "command": "decompress",
+      "ok": true,
+      "result": {
+        "rows": 420551,
+        "timings_s": {
+          "decode_csv_write": 0.132377851,
+          "read_crc_model": 0.019283377
+        }
+      }
+    }
+  },
+  {
+    "dataset": "jena_climate",
+    "backend": "avx512",
+    "profile": "compress",
+    "decoder": "avx512",
+    "source_sha256": "81f31c34961f8725a63e180ebfd6ff8141863d0e7384d89e3360ee8c8e3fee93",
+    "schema_sha256": "711bbbc8a93dc02968c38a05c331c93ff2d19d8f6439d76e0f7eed83a179b16f",
+    "archive_sha256": "6a8649066231faf49d534dbad0bc65ef1ed247e3137b71b98618ec31d3dffa33",
+    "restored_sha256": "81f31c34961f8725a63e180ebfd6ff8141863d0e7384d89e3360ee8c8e3fee93",
+    "bytes": 9457720,
+    "encode_s": 0.5071727894246578,
+    "decode_s": 0.15365390852093697,
+    "encode": {
+      "api_version": 1,
+      "command": "compress",
+      "ok": true,
+      "result": {
+        "block_rows": 4096,
+        "bytes": 9457720,
+        "rows": 420551,
+        "states": 1,
+        "timings_s": {
+          "model_encode_crc": 0.137531893,
+          "parse_count": 0.356713435,
+          "write_commit": 0.005162097
+        }
+      }
+    },
+    "decode": {
+      "api_version": 1,
+      "command": "decompress",
+      "ok": true,
+      "result": {
+        "rows": 420551,
+        "timings_s": {
+          "decode_csv_write": 0.132467929,
+          "read_crc_model": 0.019054657
+        }
+      }
+    }
+  },
+  {
+    "dataset": "covtype",
+    "backend": "portable",
+    "profile": "compress-simd",
+    "decoder": "avx512",
+    "source_sha256": "0a9371cef7c964b5475d6053cc3e0894a5aa6f65ad1ed3ecb01c45aa96217945",
+    "schema_sha256": "313e18a16520f53c77bc77df4196902109d262eb183c07de7dddf7ef97f71ec8",
+    "archive_sha256": "11aaf5438d780e2cac4da54e82ce87af978205f5fa1865802733836a141c637b",
+    "restored_sha256": "0a9371cef7c964b5475d6053cc3e0894a5aa6f65ad1ed3ecb01c45aa96217945",
+    "bytes": 8421545,
+    "encode_s": 1.175886407494545,
+    "decode_s": 0.4044937528669834,
+    "encode": {
+      "api_version": 1,
+      "command": "compress-simd",
+      "ok": true,
+      "result": {
+        "avx512_available": false,
+        "block_rows": 4096,
+        "bytes": 8421545,
+        "independent_records": false,
+        "profile": "simd-bulk",
+        "rows": 581012
+      }
+    },
+    "decode": {
+      "api_version": 1,
+      "command": "decompress",
+      "ok": true,
+      "result": {
+        "rows": 581012,
+        "timings_s": {
+          "decode_csv_write": 0.375683812,
+          "read_crc_model": 0.026051696
+        }
+      }
+    }
+  },
+  {
+    "dataset": "covtype",
+    "backend": "avx512",
+    "profile": "compress-simd",
+    "decoder": "portable",
+    "source_sha256": "0a9371cef7c964b5475d6053cc3e0894a5aa6f65ad1ed3ecb01c45aa96217945",
+    "schema_sha256": "313e18a16520f53c77bc77df4196902109d262eb183c07de7dddf7ef97f71ec8",
+    "archive_sha256": "11aaf5438d780e2cac4da54e82ce87af978205f5fa1865802733836a141c637b",
+    "restored_sha256": "0a9371cef7c964b5475d6053cc3e0894a5aa6f65ad1ed3ecb01c45aa96217945",
+    "bytes": 8421545,
+    "encode_s": 1.0567551236599684,
+    "decode_s": 0.5160460993647575,
+    "encode": {
+      "api_version": 1,
+      "command": "compress-simd",
+      "ok": true,
+      "result": {
+        "avx512_available": true,
+        "block_rows": 4096,
+        "bytes": 8421545,
+        "independent_records": false,
+        "profile": "simd-bulk",
+        "rows": 581012
+      }
+    },
+    "decode": {
+      "api_version": 1,
+      "command": "decompress",
+      "ok": true,
+      "result": {
+        "rows": 581012,
+        "timings_s": {
+          "decode_csv_write": 0.503937032,
+          "read_crc_model": 0.0102016
+        }
+      }
+    }
+  },
+  {
+    "dataset": "covtype",
+    "backend": "avx512",
+    "profile": "compress",
+    "decoder": "avx512",
+    "source_sha256": "0a9371cef7c964b5475d6053cc3e0894a5aa6f65ad1ed3ecb01c45aa96217945",
+    "schema_sha256": "313e18a16520f53c77bc77df4196902109d262eb183c07de7dddf7ef97f71ec8",
+    "archive_sha256": "58a5354b5daf70ad49a126e23543109bae0ae352494c97e356a758b600c5e48b",
+    "restored_sha256": "0a9371cef7c964b5475d6053cc3e0894a5aa6f65ad1ed3ecb01c45aa96217945",
+    "bytes": 6922673,
+    "encode_s": 1.168922247365117,
+    "decode_s": 0.5007227379828691,
+    "encode": {
+      "api_version": 1,
+      "command": "compress",
+      "ok": true,
+      "result": {
+        "block_rows": 4096,
+        "bytes": 6922673,
+        "rows": 581012,
+        "states": 1,
+        "timings_s": {
+          "model_encode_crc": 0.364465547,
+          "parse_count": 0.795426906,
+          "write_commit": 0.003727187
+        }
+      }
+    },
+    "decode": {
+      "api_version": 1,
+      "command": "decompress",
+      "ok": true,
+      "result": {
+        "rows": 581012,
+        "timings_s": {
+          "decode_csv_write": 0.490282639,
+          "read_crc_model": 0.00865414
+        }
+      }
+    }
+  },
+  {
+    "dataset": "USCensus1990",
+    "backend": "portable",
+    "profile": "compress-simd",
+    "decoder": "avx512",
+    "source_sha256": "7832d5412b8304ae23b697bcf7226a073326a672ef9b187117579bfe0eae6021",
+    "schema_sha256": "d72d29c8a7f43103d746991edce72a60c219352906735f83408c6bea9990d744",
+    "archive_sha256": "2f5258f2ad87683e6b4f278b0dd3b2e8e0509b66a50a63e6fc1152b5d26d0f8d",
+    "restored_sha256": "7832d5412b8304ae23b697bcf7226a073326a672ef9b187117579bfe0eae6021",
+    "bytes": 33925970,
+    "encode_s": 5.616795085370541,
+    "decode_s": 2.3896503392606974,
+    "encode": {
+      "api_version": 1,
+      "command": "compress-simd",
+      "ok": true,
+      "result": {
+        "avx512_available": false,
+        "block_rows": 4096,
+        "bytes": 33925970,
+        "independent_records": false,
+        "profile": "simd-bulk",
+        "rows": 2458285
+      }
+    },
+    "decode": {
+      "api_version": 1,
+      "command": "decompress",
+      "ok": true,
+      "result": {
+        "rows": 2458285,
+        "timings_s": {
+          "decode_csv_write": 2.339120716,
+          "read_crc_model": 0.047425174
+        }
+      }
+    }
+  },
+  {
+    "dataset": "USCensus1990",
+    "backend": "avx512",
+    "profile": "compress-simd",
+    "decoder": "portable",
+    "source_sha256": "7832d5412b8304ae23b697bcf7226a073326a672ef9b187117579bfe0eae6021",
+    "schema_sha256": "d72d29c8a7f43103d746991edce72a60c219352906735f83408c6bea9990d744",
+    "archive_sha256": "2f5258f2ad87683e6b4f278b0dd3b2e8e0509b66a50a63e6fc1152b5d26d0f8d",
+    "restored_sha256": "7832d5412b8304ae23b697bcf7226a073326a672ef9b187117579bfe0eae6021",
+    "bytes": 33925970,
+    "encode_s": 5.343193769454956,
+    "decode_s": 2.7591279186308384,
+    "encode": {
+      "api_version": 1,
+      "command": "compress-simd",
+      "ok": true,
+      "result": {
+        "avx512_available": true,
+        "block_rows": 4096,
+        "bytes": 33925970,
+        "independent_records": false,
+        "profile": "simd-bulk",
+        "rows": 2458285
+      }
+    },
+    "decode": {
+      "api_version": 1,
+      "command": "decompress",
+      "ok": true,
+      "result": {
+        "rows": 2458285,
+        "timings_s": {
+          "decode_csv_write": 2.7262418840000002,
+          "read_crc_model": 0.030783145
+        }
+      }
+    }
+  },
+  {
+    "dataset": "USCensus1990",
+    "backend": "avx512",
+    "profile": "compress",
+    "decoder": "avx512",
+    "source_sha256": "7832d5412b8304ae23b697bcf7226a073326a672ef9b187117579bfe0eae6021",
+    "schema_sha256": "d72d29c8a7f43103d746991edce72a60c219352906735f83408c6bea9990d744",
+    "archive_sha256": "ace9254cdba60482df46ab5a153341c5c2994fe79aac0bd70a26670022b98b4d",
+    "restored_sha256": "7832d5412b8304ae23b697bcf7226a073326a672ef9b187117579bfe0eae6021",
+    "bytes": 26352600,
+    "encode_s": 6.868805460631847,
+    "decode_s": 2.76989209651947,
+    "encode": {
+      "api_version": 1,
+      "command": "compress",
+      "ok": true,
+      "result": {
+        "block_rows": 4096,
+        "bytes": 26352600,
+        "rows": 2458285,
+        "states": 1,
+        "timings_s": {
+          "model_encode_crc": 2.657699554,
+          "parse_count": 4.180937144,
+          "write_commit": 0.015908039
+        }
+      }
+    },
+    "decode": {
+      "api_version": 1,
+      "command": "decompress",
+      "ok": true,
+      "result": {
+        "rows": 2458285,
+        "timings_s": {
+          "decode_csv_write": 2.742391349,
+          "read_crc_model": 0.025509073
+        }
+      }
+    }
+  }
+]

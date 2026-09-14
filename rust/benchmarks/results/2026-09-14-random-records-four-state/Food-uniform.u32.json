@@ -1,0 +1,10 @@
+{
+  "rows": 5216593,
+  "queries": 1000000,
+  "distribution": "uniform",
+  "theta": null,
+  "seed": 123456,
+  "sha256": "6820437a01f6c39f0dd3bdb4a91fb67ae4c132e68d1d61d8cd27645d84fe36bc",
+  "format": "u32-le",
+  "scrambled": false
+}

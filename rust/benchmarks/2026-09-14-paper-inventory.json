@@ -1,0 +1,262 @@
+{
+  "source": "https://www.vldb.org/pvldb/vol17/p2528-zhang.pdf",
+  "datasets": [
+    {
+      "paper_name": "Corel",
+      "paper_rows": 68040,
+      "paper_columns": 93,
+      "status": "no_verified_merged_file",
+      "components": [
+        {
+          "status": "present",
+          "data": "/home/yiming/projects/Blitzcrank/playground/tables/ColorMoments.dat",
+          "config": "/home/yiming/projects/Blitzcrank/playground/config/ColorMoments.config",
+          "bytes": 6233880,
+          "sha256": "09913f440bd45e400218bd336b83fa21069a9fe063074b3be3a150eb44830ed4",
+          "physical_lines": 68040,
+          "delimiter": ",",
+          "sample_columns": 10,
+          "schema_columns": 10,
+          "field_types": {
+            "INTEGER": 1,
+            "DOUBLE": 9
+          },
+          "config_sha256": "e78b575b8399cf8ed1d8e7f0d5f223066d2e1d26d52e98beb13741f3693aeb6a"
+        },
+        {
+          "status": "present",
+          "data": "/home/yiming/projects/Blitzcrank/playground/tables/ColorHistogram.dat",
+          "config": "/home/yiming/projects/Blitzcrank/playground/config/ColorHistogram.config",
+          "bytes": 19992654,
+          "sha256": "8564c0c516bcb84fc5600d0b13f112a61ab5197d0e4186fb350724575626bcf7",
+          "physical_lines": 68040,
+          "delimiter": ",",
+          "sample_columns": 33,
+          "schema_columns": 33,
+          "field_types": {
+            "INTEGER": 1,
+            "DOUBLE": 32
+          },
+          "config_sha256": "1b150e3f8ac6426a7ccec9020f225096cbd635b138f303c5540a2ae71476ddea"
+        },
+        {
+          "status": "present",
+          "data": "/home/yiming/projects/Blitzcrank/playground/tables/CoocTexture.dat",
+          "config": "/home/yiming/projects/Blitzcrank/playground/config/CoocTexture.config",
+          "bytes": 10831192,
+          "sha256": "dec76581945d18f835ed6043505d76b2b1416dd5c8c10bbb6f2251713ad9a6c5",
+          "physical_lines": 68040,
+          "delimiter": ",",
+          "sample_columns": 17,
+          "schema_columns": 17,
+          "field_types": {
+            "INTEGER": 1,
+            "DOUBLE": 16
+          },
+          "config_sha256": "f44b7409d8dbb9113c359de2ae802fe346562ca6a995f55182213c7435d13938"
+        },
+        {
+          "status": "present",
+          "data": "/home/yiming/projects/Blitzcrank/playground/tables/LayoutHistogram.dat",
+          "config": "/home/yiming/projects/Blitzcrank/playground/config/LayoutHistogram.config",
+          "bytes": 19573704,
+          "sha256": "82bc2d90ded6537bf11d008156d8f41b6e7945d39bfbce609cf3ef0974e1890a",
+          "physical_lines": 66615,
+          "delimiter": ",",
+          "sample_columns": 33,
+          "schema_columns": 33,
+          "field_types": {
+            "INTEGER": 1,
+            "DOUBLE": 32
+          },
+          "config_sha256": "1b150e3f8ac6426a7ccec9020f225096cbd635b138f303c5540a2ae71476ddea"
+        }
+      ]
+    },
+    {
+      "paper_name": "Jena Climate",
+      "paper_rows": 420551,
+      "paper_columns": 14,
+      "status": "present",
+      "data": "/home/yiming/projects/Blitzcrank/playground/tables/jena_climate.dat",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/jena_climate.config",
+      "bytes": 58303861,
+      "sha256": "81f31c34961f8725a63e180ebfd6ff8141863d0e7384d89e3360ee8c8e3fee93",
+      "physical_lines": 420551,
+      "delimiter": ",",
+      "sample_columns": 14,
+      "schema_columns": 14,
+      "field_types": {
+        "DOUBLE": 14
+      },
+      "config_sha256": "711bbbc8a93dc02968c38a05c331c93ff2d19d8f6439d76e0f7eed83a179b16f",
+      "dimension_match": true
+    },
+    {
+      "paper_name": "Cars",
+      "paper_rows": 344287,
+      "paper_columns": 155,
+      "status": "present",
+      "data": "/home/yiming/projects/Blitzcrank/playground/tables/cps.dat",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/cps.config",
+      "bytes": 135819540,
+      "sha256": "3ad8774b89abf9276a35140f33a331b36627f63dc1daf3142efb99bdc567a6fd",
+      "physical_lines": 344287,
+      "delimiter": ",",
+      "sample_columns": 155,
+      "schema_columns": 155,
+      "field_types": {
+        "ENUM": 126,
+        "INTEGER": 29
+      },
+      "config_sha256": "92ba7aeca3b84ad12f52ed7d52e9eebb78abc2560d27abe64d2f8a7655ac8c34",
+      "dimension_match": true,
+      "identity": "UNCONFIRMED: cps matches dimensions; do not infer identity from dimensions alone"
+    },
+    {
+      "paper_name": "Forest Cover",
+      "paper_rows": 581012,
+      "paper_columns": 55,
+      "status": "present",
+      "data": "/home/yiming/projects/Blitzcrank/playground/tables/covtype.dat",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/covtype.config",
+      "bytes": 75169317,
+      "sha256": "0a9371cef7c964b5475d6053cc3e0894a5aa6f65ad1ed3ecb01c45aa96217945",
+      "physical_lines": 581012,
+      "delimiter": ",",
+      "sample_columns": 55,
+      "schema_columns": 55,
+      "field_types": {
+        "INTEGER": 10,
+        "ENUM": 45
+      },
+      "config_sha256": "313e18a16520f53c77bc77df4196902109d262eb183c07de7dddf7ef97f71ec8",
+      "dimension_match": true
+    },
+    {
+      "paper_name": "US Census 1990",
+      "paper_rows": 2458285,
+      "paper_columns": 69,
+      "status": "present",
+      "data": "/home/yiming/projects/Blitzcrank/playground/tables/USCensus1990.dat",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/USCensus1990.config",
+      "bytes": 358885350,
+      "sha256": "7832d5412b8304ae23b697bcf7226a073326a672ef9b187117579bfe0eae6021",
+      "physical_lines": 2458285,
+      "delimiter": ",",
+      "sample_columns": 69,
+      "schema_columns": 69,
+      "field_types": {
+        "INTEGER": 1,
+        "ENUM": 68
+      },
+      "config_sha256": "d72d29c8a7f43103d746991edce72a60c219352906735f83408c6bea9990d744",
+      "dimension_match": true
+    },
+    {
+      "paper_name": "Food",
+      "paper_rows": 5216593,
+      "paper_columns": 5,
+      "status": "present",
+      "data": "/home/yiming/projects/Blitzcrank/playground/tables/Food.dat",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/Food.config",
+      "bytes": 183440700,
+      "sha256": "0e80c5f1f4a76fda4e8739b9b0ab0d9b9d4abadf2149c07243001768c539fa8d",
+      "physical_lines": 5216593,
+      "delimiter": ",",
+      "sample_columns": 5,
+      "schema_columns": 5,
+      "field_types": {
+        "ENUM": 4,
+        "STRING": 1
+      },
+      "config_sha256": "f5ca39ddb89b371ea6d355551eff554b40a6ddf0ec068abdaea28428b6a734b5",
+      "dimension_match": true
+    },
+    {
+      "paper_name": "Bimbo",
+      "paper_rows": 20259279,
+      "paper_columns": 12,
+      "status": "present",
+      "data": "/home/yiming/projects/Blitzcrank/playground/tables/Bimbo_1.dat",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/Bimbo_1.config",
+      "bytes": 1122226482,
+      "sha256": "f9df0684846ba1f239e7ddc83bd5b9f5a34f6322b4e59963501241ddece53731",
+      "physical_lines": 20259279,
+      "delimiter": ",",
+      "sample_columns": 12,
+      "schema_columns": 12,
+      "field_types": {
+        "ENUM": 10,
+        "STRING": 1,
+        "DOUBLE": 1
+      },
+      "config_sha256": "922d8a54ed04b8c560060eb2c30ef08c0e04f741f02bae266b5b3986ec93953a",
+      "dimension_match": true
+    },
+    {
+      "paper_name": "Yale Languages",
+      "paper_rows": 5762082,
+      "paper_columns": 30,
+      "status": "present",
+      "data": "/home/yiming/projects/Blitzcrank/playground/tables/YaleLanguages.dat",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/YaleLanguages.config",
+      "bytes": 1714687521,
+      "sha256": "382714eb21f7566916b8b8809a6456c4c8199c21e328fb6ac33eb21029a40660",
+      "physical_lines": 5762082,
+      "delimiter": ",",
+      "sample_columns": 30,
+      "schema_columns": 30,
+      "field_types": {
+        "ENUM": 26,
+        "INTEGER": 2,
+        "STRING": 2
+      },
+      "config_sha256": "f0df9b133866460dbe36eafd0072c22effd0cbd707498d55abf43e8c8566475a",
+      "dimension_match": true
+    },
+    {
+      "paper_name": "Medicare",
+      "paper_rows": 8645072,
+      "paper_columns": 26,
+      "status": "present",
+      "data": "/home/yiming/projects/Blitzcrank/playground/tables/Medicare1_1.dat",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/Medicare1_1.config",
+      "bytes": 1812546129,
+      "sha256": "5fdb00d96b2f7de673516b340d9cb9feb43caf41f0c2bf42ea293f22877b6de0",
+      "physical_lines": 8645072,
+      "delimiter": "|",
+      "sample_columns": 26,
+      "schema_columns": 26,
+      "field_types": {
+        "ENUM": 14,
+        "DOUBLE": 6,
+        "INTEGER": 3,
+        "STRING": 3
+      },
+      "config_sha256": "0d11006b8a2a1130fed3a7fcdd3f3f02af9bb8add4b11e3bd8ef4c78af980614",
+      "dimension_match": true
+    },
+    {
+      "paper_name": "Arade",
+      "paper_rows": 9888775,
+      "paper_columns": 11,
+      "status": "present",
+      "data": "/home/yiming/projects/Blitzcrank/playground/tables/Arade_1.dat",
+      "config": "/home/yiming/projects/Blitzcrank/playground/config/Arade_1.config",
+      "bytes": 911153271,
+      "sha256": "3ab47a68ba3732d67cbb933fe3cdfbbb7aca71f622ee62d5de2c3e0722d740d8",
+      "physical_lines": 9888775,
+      "delimiter": ",",
+      "sample_columns": 11,
+      "schema_columns": 11,
+      "field_types": {
+        "ENUM": 6,
+        "STRING": 1,
+        "DOUBLE": 4
+      },
+      "config_sha256": "9e6f608f400fd9b74a0b02d1131f4ac25bab7e4e47b014ae286c5e62e6e93e3e",
+      "dimension_match": true
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "dataset": "jena_climate",
+    "typed_exit": 0,
+    "typed": {
+      "mean_ns_per_row": 0.0,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 3606176,
+      "queries": 0,
+      "setup_included": false,
+      "verified_rows": 420551,
+      "warmup_queries": 1
+    },
+    "csv_exit": 0,
+    "source_sha256": "81f31c34961f8725a63e180ebfd6ff8141863d0e7384d89e3360ee8c8e3fee93",
+    "decoded_sha256": "81f31c34961f8725a63e180ebfd6ff8141863d0e7384d89e3360ee8c8e3fee93",
+    "byte_exact": true,
+    "decode_error": ""
+  },
+  {
+    "dataset": "covtype",
+    "typed_exit": 0,
+    "typed": {
+      "mean_ns_per_row": 0.0,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 8816,
+      "queries": 0,
+      "setup_included": false,
+      "verified_rows": 581012,
+      "warmup_queries": 1
+    },
+    "csv_exit": 0,
+    "source_sha256": "0a9371cef7c964b5475d6053cc3e0894a5aa6f65ad1ed3ecb01c45aa96217945",
+    "decoded_sha256": "0a9371cef7c964b5475d6053cc3e0894a5aa6f65ad1ed3ecb01c45aa96217945",
+    "byte_exact": true,
+    "decode_error": ""
+  },
+  {
+    "dataset": "USCensus1990",
+    "typed_exit": 0,
+    "typed": {
+      "mean_ns_per_row": 0.0,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 23952,
+      "queries": 0,
+      "setup_included": false,
+      "verified_rows": 2458285,
+      "warmup_queries": 1
+    },
+    "csv_exit": 0,
+    "source_sha256": "7832d5412b8304ae23b697bcf7226a073326a672ef9b187117579bfe0eae6021",
+    "decoded_sha256": "7832d5412b8304ae23b697bcf7226a073326a672ef9b187117579bfe0eae6021",
+    "byte_exact": true,
+    "decode_error": ""
+  },
+  {
+    "dataset": "Food",
+    "typed_exit": 0,
+    "typed": {
+      "mean_ns_per_row": 0.0,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 394440,
+      "queries": 0,
+      "setup_included": false,
+      "verified_rows": 5216593,
+      "warmup_queries": 1
+    },
+    "csv_exit": 0,
+    "source_sha256": "0e80c5f1f4a76fda4e8739b9b0ab0d9b9d4abadf2149c07243001768c539fa8d",
+    "decoded_sha256": "0e80c5f1f4a76fda4e8739b9b0ab0d9b9d4abadf2149c07243001768c539fa8d",
+    "byte_exact": true,
+    "decode_error": ""
+  },
+  {
+    "dataset": "Bimbo_1",
+    "typed_exit": 0,
+    "typed": {
+      "mean_ns_per_row": 0.0,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 2775640,
+      "queries": 0,
+      "setup_included": false,
+      "verified_rows": 20259279,
+      "warmup_queries": 1
+    },
+    "csv_exit": 0,
+    "source_sha256": "f9df0684846ba1f239e7ddc83bd5b9f5a34f6322b4e59963501241ddece53731",
+    "decoded_sha256": "f9df0684846ba1f239e7ddc83bd5b9f5a34f6322b4e59963501241ddece53731",
+    "byte_exact": true,
+    "decode_error": ""
+  },
+  {
+    "dataset": "YaleLanguages",
+    "typed_exit": 0,
+    "typed": {
+      "mean_ns_per_row": 0.0,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 1286382,
+      "queries": 0,
+      "setup_included": false,
+      "verified_rows": 5762082,
+      "warmup_queries": 1
+    },
+    "csv_exit": 0,
+    "source_sha256": "382714eb21f7566916b8b8809a6456c4c8199c21e328fb6ac33eb21029a40660",
+    "decoded_sha256": "382714eb21f7566916b8b8809a6456c4c8199c21e328fb6ac33eb21029a40660",
+    "byte_exact": true,
+    "decode_error": ""
+  },
+  {
+    "dataset": "Arade_1",
+    "typed_exit": 0,
+    "typed": {
+      "mean_ns_per_row": 0.0,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 5080,
+      "queries": 0,
+      "setup_included": false,
+      "verified_rows": 9888775,
+      "warmup_queries": 1
+    },
+    "csv_exit": 0,
+    "source_sha256": "3ab47a68ba3732d67cbb933fe3cdfbbb7aca71f622ee62d5de2c3e0722d740d8",
+    "decoded_sha256": "3ab47a68ba3732d67cbb933fe3cdfbbb7aca71f622ee62d5de2c3e0722d740d8",
+    "byte_exact": true,
+    "decode_error": ""
+  },
+  {
+    "dataset": "cps",
+    "typed_exit": 0,
+    "typed": {
+      "mean_ns_per_row": 0.0,
+      "measurement": "resident locate + typed whole-row decode; strings copied, numeric dictionaries prepared; no decoded-row cache",
+      "prepared_bytes": 48376,
+      "queries": 0,
+      "setup_included": false,
+      "verified_rows": 344287,
+      "warmup_queries": 1
+    },
+    "csv_exit": 0,
+    "source_sha256": "3ad8774b89abf9276a35140f33a331b36627f63dc1daf3142efb99bdc567a6fd",
+    "decoded_sha256": "3ad8774b89abf9276a35140f33a331b36627f63dc1daf3142efb99bdc567a6fd",
+    "byte_exact": true,
+    "decode_error": ""
+  }
+]

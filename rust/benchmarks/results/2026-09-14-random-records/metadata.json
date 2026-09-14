@@ -1,0 +1,208 @@
+{
+  "settings": {
+    "root": "/tmp/blitzcrank-record4.k14xzty1",
+    "cpp": "/tmp/blitzcrank-random-opt.TclzFY/cpp-warm",
+    "rust": "target/release/examples/trace_records",
+    "datasets": [
+      "jena_climate",
+      "covtype",
+      "USCensus1990",
+      "Food",
+      "Bimbo_1",
+      "YaleLanguages",
+      "Arade_1",
+      "cps"
+    ],
+    "queries": 1000000,
+    "runs": 3,
+    "cpu": 2,
+    "distributions": [
+      "uniform",
+      "zipf"
+    ],
+    "rust_args": []
+  },
+  "executables": {
+    "cpp": "da6953ecb94306354210df7dd3012a6ecbb086128c8879007223fb9753fbc4cb",
+    "rust": "cc67e3d741f9dce90e707b4c2a078a9234906ed0455877cb6ff47dcdd975f9f2"
+  },
+  "archives": {
+    "jena_climate": {
+      "rows": 420551,
+      "rust": {
+        "sha256": "2fad96f90482be89769a11d75be8040a702f8fd8ae1a1152700e40650413397c",
+        "bytes": 11732642
+      },
+      "cpp": {
+        "payload.bin": {
+          "sha256": "d95ce600aede79d6de0537281e3c0529d9085ffaec2cb2c4949bb834b10045d9",
+          "bytes": 12812698
+        },
+        "_enum.dat": {
+          "sha256": "f9796f10051646d52c962c89fde70b27fbcf561d9a8bdf45a5661cc7ba111833",
+          "bytes": 14
+        },
+        "_temp.index": {
+          "sha256": "c20ee8f360eb3b4137b90daec8bdbb4ff394538c0ef3ce1115479ed2290f131d",
+          "bytes": 1682212
+        }
+      },
+      "schema_sha256": "711bbbc8a93dc02968c38a05c331c93ff2d19d8f6439d76e0f7eed83a179b16f"
+    },
+    "covtype": {
+      "rows": 581012,
+      "rust": {
+        "sha256": "00b6c9148c3d1c57129072ce77996db59dcdf37849996b61acb2ec8fbf04bb38",
+        "bytes": 15006247
+      },
+      "cpp": {
+        "payload.bin": {
+          "sha256": "f755ef9f03fe771afb7c8d6425428a7eefcccdd4fc5efe8d48ed252556e82b4b",
+          "bytes": 9123631
+        },
+        "_enum.dat": {
+          "sha256": "2a240c6aea109889962026cd32010ce7b4c14f3589eb98798da63a632651813d",
+          "bytes": 245
+        },
+        "_temp.index": {
+          "sha256": "6244cb8ba6d280c89d6791cd4445261ab1710c0f1f7d937e9da0b62d69e0ca34",
+          "bytes": 2324056
+        }
+      },
+      "schema_sha256": "313e18a16520f53c77bc77df4196902109d262eb183c07de7dddf7ef97f71ec8"
+    },
+    "USCensus1990": {
+      "rows": 2458285,
+      "rust": {
+        "sha256": "f77b529c0d2ff9d6d552e67a9c821188f9575ecdde764b5ec2e675162c24c7bd",
+        "bytes": 45423956
+      },
+      "cpp": {
+        "payload.bin": {
+          "sha256": "44dc4af9d7af1ad41f63bbbb447cd825c19102dee5316a74c47a6a11572d6f82",
+          "bytes": 40725009
+        },
+        "_enum.dat": {
+          "sha256": "022a1bd82ea38c715cdb5b2048085d4daa901e434c83b80064e4d43c4f72f3c0",
+          "bytes": 935
+        },
+        "_temp.index": {
+          "sha256": "f34556be9bf0fa6015a9d8cf2f460a7d04cbfa59d73071efca1912f0699d4c78",
+          "bytes": 9833148
+        }
+      },
+      "schema_sha256": "d72d29c8a7f43103d746991edce72a60c219352906735f83408c6bea9990d744"
+    },
+    "Food": {
+      "rows": 5216593,
+      "rust": {
+        "sha256": "221b521c9d9cbf7f3371579725f8004814593c42903237950b9b455335cb3113",
+        "bytes": 60316451
+      },
+      "cpp": {
+        "payload.bin": {
+          "sha256": "5b3f8994cbd3597cad70406e94ea1092a95166a9e9d6e1b10894ec5c4c6b8da9",
+          "bytes": 41937316
+        },
+        "_enum.dat": {
+          "sha256": "96644e0a8043e536163cdafa917bde4bf04c791febb7ee53d4b523764f1f66c6",
+          "bytes": 99705
+        },
+        "_temp.index": {
+          "sha256": "b3099fc114fd8950538a8f86f1d07fdaa3226692eeb02747cc577f439c0a6115",
+          "bytes": 20866380
+        }
+      },
+      "schema_sha256": "f5ca39ddb89b371ea6d355551eff554b40a6ddf0ec068abdaea28428b6a734b5"
+    },
+    "Bimbo_1": {
+      "rows": 20259279,
+      "rust": {
+        "sha256": "f4541f1540fe04a8a428fc6a14e6727f6052d678da839910a470a94d31171022",
+        "bytes": 325679303
+      },
+      "cpp": {
+        "payload.bin": {
+          "sha256": "3f571e7932fa7286507ae5f76304f484de3ffdb45f9b0506e9dd759864dd34bd",
+          "bytes": 222842618
+        },
+        "_enum.dat": {
+          "sha256": "b0e0da57ed3a515441a9bfe7cb866669106148c50bc3a24cd4cfbded96211525",
+          "bytes": 136295
+        },
+        "_temp.index": {
+          "sha256": "10f7efa38659ba72e70bdfaa8f2b0772a12af1aaceb3543791ca27b05a1dc7b6",
+          "bytes": 81037124
+        }
+      },
+      "schema_sha256": "922d8a54ed04b8c560060eb2c30ef08c0e04f741f02bae266b5b3986ec93953a"
+    },
+    "YaleLanguages": {
+      "rows": 5762082,
+      "rust": {
+        "sha256": "969b7dc170b82ce5ea83cac746b01b7e021befe00ad8fb4015f6d94ad437e628",
+        "bytes": 146466542
+      },
+      "cpp": {
+        "payload.bin": {
+          "sha256": "f18f1c6b9b060e52af1a4435cb9adc3cfa0b9ddbfd4e9678bfdbfa0ab9b682ce",
+          "bytes": 111929568
+        },
+        "_enum.dat": {
+          "sha256": "dae5e51f7382e0562c65547c34d2f83228a176b6aa4302dfadfdf55f40ab4148",
+          "bytes": 29500
+        },
+        "_temp.index": {
+          "sha256": "d2342ab9e8d4cb919e5ac9f07a76f0bbb6964b9740bdde8f2080c401d1b2c2bc",
+          "bytes": 23048336
+        }
+      },
+      "schema_sha256": "f0df9b133866460dbe36eafd0072c22effd0cbd707498d55abf43e8c8566475a"
+    },
+    "Arade_1": {
+      "rows": 9888775,
+      "rust": {
+        "sha256": "f788b668f1fa3c3fca7f3fda5418419d46084859356a8bbb9619dbcc50289934",
+        "bytes": 296289806
+      },
+      "cpp": {
+        "payload.bin": {
+          "sha256": "6da925f650fe952a010b3bb9a61009b22ae336712faf74fb24ae77a6a5025449",
+          "bytes": 172624668
+        },
+        "_enum.dat": {
+          "sha256": "f3f96167831fbf7172bf843b92593eaac19b4bdbb4afb499d1b7701e0032f231",
+          "bytes": 608
+        },
+        "_temp.index": {
+          "sha256": "fd51eeb2a10133b86ae6109675bf75bf0a31e059a623748125ed3e1e135bf433",
+          "bytes": 39555108
+        }
+      },
+      "schema_sha256": "9e6f608f400fd9b74a0b02d1131f4ac25bab7e4e47b014ae286c5e62e6e93e3e"
+    },
+    "cps": {
+      "rows": 344287,
+      "rust": {
+        "sha256": "b4b0fbf206b1ddd9c618104769a698f0fb1e38fdc0d21b52a5b1a9ad6a99d887",
+        "bytes": 28507794
+      },
+      "cpp": {
+        "payload.bin": {
+          "sha256": "ae0c889bc86e3673581ef25f0970ce7601046ab7c663b968638254ded735c25b",
+          "bytes": 21710129
+        },
+        "_enum.dat": {
+          "sha256": "ade540f0451048823ff88ce5cbc323d5850d695908fd20af17fd95e0030f15a3",
+          "bytes": 2998
+        },
+        "_temp.index": {
+          "sha256": "15327dd9d87562c8b1cdd6cfc027a0e92e7f80a76f3f4e968606f250072941dc",
+          "bytes": 1377156
+        }
+      },
+      "schema_sha256": "92ba7aeca3b84ad12f52ed7d52e9eebb78abc2560d27abe64d2f8a7655ac8c34"
+    }
+  },
+  "host": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 57 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  192\nOn-line CPU(s) list:                     0-191\nVendor ID:                               GenuineIntel\nModel name:                              Intel(R) Xeon(R) Platinum 8474C\nCPU family:                              6\nModel:                                   143\nThread(s) per core:                      2\nCore(s) per socket:                      48\nSocket(s):                               2\nStepping:                                8\nBogoMIPS:                                4200.00\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cat_l2 cdp_l3 invpcid_single cdp_l2 ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect avx_vnni avx512_bf16 wbnoinvd dtherm ida arat pln pts hfi avx512vbmi umip pku ospke waitpkg avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid bus_lock_detect cldemote movdiri movdir64b enqcmd fsrm md_clear serialize tsxldtrk pconfig arch_lbr ibt amx_bf16 avx512_fp16 amx_tile amx_int8 flush_l1d arch_capabilities ibpb_exit_to_user\nVirtualization:                          VT-x\nL1d cache:                               4.5 MiB (96 instances)\nL1i cache:                               3 MiB (96 instances)\nL2 cache:                                192 MiB (96 instances)\nL3 cache:                                195 MiB (2 instances)\nNUMA node(s):                            2\nNUMA node0 CPU(s):                       0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132,134,136,138,140,142,144,146,148,150,152,154,156,158,160,162,164,166,168,170,172,174,176,178,180,182,184,186,188,190\nNUMA node1 CPU(s):                       1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79,81,83,85,87,89,91,93,95,97,99,101,103,105,107,109,111,113,115,117,119,121,123,125,127,129,131,133,135,137,139,141,143,145,147,149,151,153,155,157,159,161,163,165,167,169,171,173,175,177,179,181,183,185,187,189,191\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace\n"
+}

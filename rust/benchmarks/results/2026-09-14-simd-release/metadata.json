@@ -1,0 +1,329 @@
+{
+  "cpu": 2,
+  "runs": 1,
+  "block_rows": 4096,
+  "precision": 16,
+  "measurement": "diagnostic full-process wall times, not resident queries or acceptance ratios",
+  "helpers": {
+    "portable": {
+      "sha256": "0ff9e7a8ea432151fd2c4e3610838cbe952065fceaea3e48caf2f8924ef780f8",
+      "capabilities": {
+        "api_version": 1,
+        "command": "capabilities",
+        "ok": true,
+        "result": {
+          "avx512": {
+            "available": false,
+            "compiled": false,
+            "scalar_fallback": true,
+            "scope": "explicit compress-simd bulk profile only"
+          },
+          "backend_flags": [
+            "--general"
+          ],
+          "commands": {
+            "compress": {
+              "arguments": [
+                "input_csv",
+                "schema",
+                "output_archive"
+              ],
+              "optional": [
+                "block_rows=256",
+                "states=1"
+              ]
+            },
+            "compress-records": {
+              "arguments": [
+                "input_csv",
+                "schema",
+                "output_archive"
+              ],
+              "block_rows": 1,
+              "optional": [
+                "states=1",
+                "small_alphabet_precision=16",
+                "profile=balanced"
+              ],
+              "profiles": [
+                "balanced",
+                "joint"
+              ]
+            },
+            "compress-simd": {
+              "arguments": [
+                "input_csv",
+                "schema",
+                "output_archive"
+              ],
+              "entropy_states": 64,
+              "experimental": true,
+              "max_alphabet": 256,
+              "optional": [
+                "block_rows=4096"
+              ],
+              "precision": 16
+            },
+            "decode-row": {
+              "arguments": [
+                "input_archive",
+                "zero_based_row"
+              ]
+            },
+            "decode-rows": {
+              "arguments": [
+                "input_archive",
+                "zero_based_start",
+                "count"
+              ],
+              "max_count": 1024,
+              "max_response_field_bytes": 8388608
+            },
+            "decompress": {
+              "arguments": [
+                "input_archive",
+                "output_csv"
+              ]
+            },
+            "inspect": {
+              "arguments": [
+                "input_archive"
+              ]
+            },
+            "seek-bench": {
+              "arguments": [
+                "input_archive"
+              ],
+              "optional": [
+                "queries=300000"
+              ]
+            },
+            "seek-record-bench": {
+              "arguments": [
+                "input_archive"
+              ],
+              "optional": [
+                "queries=300000",
+                "table_bits=0"
+              ],
+              "setup_included": false,
+              "typed": true
+            },
+            "validate": {
+              "arguments": [
+                "input_archive"
+              ]
+            }
+          },
+          "cpp_format_compatible": false,
+          "delimiter_flags": [
+            "--delimiter=comma",
+            "--delimiter=pipe"
+          ],
+          "errors": {
+            "E_DATA": 4,
+            "E_EXISTS": 5,
+            "E_FORMAT": 4,
+            "E_IO": 3,
+            "E_SCHEMA": 2,
+            "E_USAGE": 2
+          },
+          "format_write": "automatic_v1_or_v2",
+          "formats_read": [
+            "BLTZRS01",
+            "BLTZRS02"
+          ],
+          "integer_json": "decimal strings to preserve all i64 bits",
+          "json_flag": "--json; one response on stdout, exit status is authoritative",
+          "lookup_tables": {
+            "decode": false,
+            "encode": false,
+            "extra_decode_bytes_per_model": 524288,
+            "extra_encode_bytes_per_model": 131072
+          },
+          "lossless": true,
+          "max_block_rows": 65536,
+          "max_columns": 1024,
+          "max_dictionary_entries": 65536,
+          "multiline_csv": true,
+          "name": "blitzcrank-rs",
+          "output_policy": "atomic-create-only; existing paths never overwritten; no fsync durability guarantee",
+          "quoted_csv": true,
+          "schema_types": [
+            "INTEGER nonnegative_tolerance",
+            "ENUM cardinality 0",
+            "DOUBLE nonnegative_tolerance",
+            "STRING"
+          ],
+          "simd": false,
+          "states": [
+            1,
+            4
+          ],
+          "threads": 1,
+          "version": "0.1.0"
+        }
+      }
+    },
+    "avx512": {
+      "sha256": "7f3cb51851db25cdba52d79d2125db0837ce9e7a3597a259ff3964dfb3ecd0bd",
+      "capabilities": {
+        "api_version": 1,
+        "command": "capabilities",
+        "ok": true,
+        "result": {
+          "avx512": {
+            "available": true,
+            "compiled": true,
+            "scalar_fallback": true,
+            "scope": "explicit compress-simd bulk profile only"
+          },
+          "backend_flags": [
+            "--general"
+          ],
+          "commands": {
+            "compress": {
+              "arguments": [
+                "input_csv",
+                "schema",
+                "output_archive"
+              ],
+              "optional": [
+                "block_rows=256",
+                "states=1"
+              ]
+            },
+            "compress-records": {
+              "arguments": [
+                "input_csv",
+                "schema",
+                "output_archive"
+              ],
+              "block_rows": 1,
+              "optional": [
+                "states=1",
+                "small_alphabet_precision=16",
+                "profile=balanced"
+              ],
+              "profiles": [
+                "balanced",
+                "joint"
+              ]
+            },
+            "compress-simd": {
+              "arguments": [
+                "input_csv",
+                "schema",
+                "output_archive"
+              ],
+              "entropy_states": 64,
+              "experimental": true,
+              "max_alphabet": 256,
+              "optional": [
+                "block_rows=4096"
+              ],
+              "precision": 16
+            },
+            "decode-row": {
+              "arguments": [
+                "input_archive",
+                "zero_based_row"
+              ]
+            },
+            "decode-rows": {
+              "arguments": [
+                "input_archive",
+                "zero_based_start",
+                "count"
+              ],
+              "max_count": 1024,
+              "max_response_field_bytes": 8388608
+            },
+            "decompress": {
+              "arguments": [
+                "input_archive",
+                "output_csv"
+              ]
+            },
+            "inspect": {
+              "arguments": [
+                "input_archive"
+              ]
+            },
+            "seek-bench": {
+              "arguments": [
+                "input_archive"
+              ],
+              "optional": [
+                "queries=300000"
+              ]
+            },
+            "seek-record-bench": {
+              "arguments": [
+                "input_archive"
+              ],
+              "optional": [
+                "queries=300000",
+                "table_bits=0"
+              ],
+              "setup_included": false,
+              "typed": true
+            },
+            "validate": {
+              "arguments": [
+                "input_archive"
+              ]
+            }
+          },
+          "cpp_format_compatible": false,
+          "delimiter_flags": [
+            "--delimiter=comma",
+            "--delimiter=pipe"
+          ],
+          "errors": {
+            "E_DATA": 4,
+            "E_EXISTS": 5,
+            "E_FORMAT": 4,
+            "E_IO": 3,
+            "E_SCHEMA": 2,
+            "E_USAGE": 2
+          },
+          "format_write": "automatic_v1_or_v2",
+          "formats_read": [
+            "BLTZRS01",
+            "BLTZRS02"
+          ],
+          "integer_json": "decimal strings to preserve all i64 bits",
+          "json_flag": "--json; one response on stdout, exit status is authoritative",
+          "lookup_tables": {
+            "decode": false,
+            "encode": false,
+            "extra_decode_bytes_per_model": 524288,
+            "extra_encode_bytes_per_model": 131072
+          },
+          "lossless": true,
+          "max_block_rows": 65536,
+          "max_columns": 1024,
+          "max_dictionary_entries": 65536,
+          "multiline_csv": true,
+          "name": "blitzcrank-rs",
+          "output_policy": "atomic-create-only; existing paths never overwritten; no fsync durability guarantee",
+          "quoted_csv": true,
+          "schema_types": [
+            "INTEGER nonnegative_tolerance",
+            "ENUM cardinality 0",
+            "DOUBLE nonnegative_tolerance",
+            "STRING"
+          ],
+          "simd": true,
+          "states": [
+            1,
+            4
+          ],
+          "threads": 1,
+          "version": "0.1.0"
+        }
+      }
+    }
+  }
+}

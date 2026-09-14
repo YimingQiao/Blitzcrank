@@ -6,12 +6,32 @@ This repository contains the code for the paper titled "[Blitzcrank: Fast Semant
 
 **Blitzcrank** is a library for compressing row-store OLTP databases. It uses a novel entropy coding algorithm called **Delayed Coding**, which achieves near-entropy compression factors while maintaining fast decompression speeds.
 
+## Rust preview: portable records and optional SIMD bulk coding
+
+The `rust-preview` branch adds a [Rust library and CLI](rust/README.md), using
+the separate [Delayed Coding project](https://github.com/embryo-labs/delayed-coding).
+Its default independent-record profile keeps fields independent, full probability
+precision and compact tables. Reusable typed readers remove CSV formatting from
+resident random reads. Joint-field/string-chunk experiments remain explicit.
+
+An [optional AVX-512 bulk path](rust/SIMD.md) has runtime detection and a scalar
+fallback. It is not silently selected for single-record queries. The
+[agent interface](rust/AGENT_API.md) provides JSON capabilities, inspection,
+validation and queries, with atomic create-only outputs.
+
+The C++ implementation and `main` branch remain the research reference. Rust
+files are self-contained but not C++ compatible; conditional learning, online
+updates, JSON models and transactions are not ported. See the
+[release scope and review](rust/RELEASE_REVIEW.md) and
+[measurements with tradeoffs](rust/benchmarks/RANDOM_ACCESS.md).
+This is a preview, not a claim of universal 4x/10x performance.
+
 ## Clone Instructions
 
 ### Experimental standalone Rust encoder
 
-The `improve-delayed-coding` branch can call the separate
-[`YimingQiao/delayed-coding`](https://github.com/YimingQiao/delayed-coding) library
+The retained opt-in C++ bridge can call the separate
+[`embryo-labs/delayed-coding`](https://github.com/embryo-labs/delayed-coding) library
 once per encoded block. This is **encoder-only**, opt-in, single-state delay-24
 integration: the C++ decoder and historical files are retained. Four-state DC is
 available in the core, but needs explicit new container metadata before use here.
@@ -23,8 +43,8 @@ optional speculative model/event encoding; see its `examples/fast_block.rs` and
 that this scalar conditional-model adapter now has those throughput numbers.
 
 Install Rust 1.88+, GCC/Clang and CMake 3.20+. Obtain the dependency revision named
-by `BLITZCRANK_DELAYED_CODING_REVISION` in the top-level CMake file; it may be a
-local development checkpoint until pushed. Nothing is downloaded by CMake.
+by `BLITZCRANK_DELAYED_CODING_REVISION` in the top-level CMake file from the
+published Delayed Coding repository. Nothing is downloaded by CMake.
 
 ```sh
 cmake -S . -B build-rust -DCMAKE_BUILD_TYPE=Release \
