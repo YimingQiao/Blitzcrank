@@ -6,6 +6,19 @@ This repository contains the code for the paper titled "[Blitzcrank: Fast Semant
 
 **Blitzcrank** is a library for compressing row-store OLTP databases. It uses a novel entropy coding algorithm called **Delayed Coding**, which achieves near-entropy compression factors while maintaining fast decompression speeds.
 
+## Rust version
+
+A Rust implementation is available on the
+[`rust-preview` branch](https://github.com/embryo-labs/Blitzcrank/tree/rust-preview).
+It provides a tabular compression library, typed random access, an agent-friendly
+JSON CLI and optional AVX-512 acceleration through the standalone
+[Delayed Coding library](https://github.com/embryo-labs/delayed-coding).
+See the [Rust quick start](https://github.com/embryo-labs/Blitzcrank/blob/rust-preview/README.md).
+
+The Rust version is a preview, not a complete port of the learned models or
+transactional engine, and its files are not compatible with this C++ version.
+This `main` branch retains the original research implementation.
+
 ## Clone Instructions
 
 To clone this project successfully, ensure you have [git-lfs](https://git-lfs.com/) installed. We use it to manage large dataset files. Depending on your internet connection, the clone process may take several minutes to finish.
@@ -155,4 +168,3 @@ Let's use the [USCensus1990](https://archive.ics.uci.edu/ml/datasets/US+Census+D
 After the execution, we check the compression correctness:
 
     diff USCensus1990.dat USCensus1990.rec
-
